@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,8 +33,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Base.17.4.0.40\lib\net45\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Windows.17.4.0.40\lib\net45\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.17.4.0.40\lib\net45\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Base.17.4.0.40\lib\net45\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Windows.17.4.0.40\lib\net45\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SpellChecker.Base.17.4.0.40\lib\net45\Syncfusion.SpellChecker.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Base.17.4.0.40\lib\net45\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=17.4450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Windows.17.4.0.40\lib\net45\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +82,60 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User Controls\CPU\CPU_FCFS_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\CPU\CPU_FCFS_UC.Designer.cs">
+      <DependentUpon>CPU_FCFS_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\CPU\CPU_Priority_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\CPU\CPU_Priority_UC.Designer.cs">
+      <DependentUpon>CPU_Priority_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\CPU\CPU_RoundRobin_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\CPU\CPU_RoundRobin_UC.Designer.cs">
+      <DependentUpon>CPU_RoundRobin_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\CPU\CPU_SJF_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\CPU\CPU_SJF_UC.Designer.cs">
+      <DependentUpon>CPU_SJF_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_FIFO_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_FIFO_UC.Designer.cs">
+      <DependentUpon>VM_FIFO_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_LRU_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_LRU_UC.Designer.cs">
+      <DependentUpon>VM_LRU_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_MFU_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_MFU_UC.Designer.cs">
+      <DependentUpon>VM_MFU_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_Optimal_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_Optimal_UC.Designer.cs">
+      <DependentUpon>VM_Optimal_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_SecondChance_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_SecondChance_UC.Designer.cs">
+      <DependentUpon>VM_SecondChance_UC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainDashboard.resx">
       <DependentUpon>MainDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -64,7 +147,36 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="User Controls\CPU\CPU_FCFS_UC.resx">
+      <DependentUpon>CPU_FCFS_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\CPU\CPU_Priority_UC.resx">
+      <DependentUpon>CPU_Priority_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\CPU\CPU_RoundRobin_UC.resx">
+      <DependentUpon>CPU_RoundRobin_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\CPU\CPU_SJF_UC.resx">
+      <DependentUpon>CPU_SJF_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Virtual Memory\VM_FIFO_UC.resx">
+      <DependentUpon>VM_FIFO_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Virtual Memory\VM_LRU_UC.resx">
+      <DependentUpon>VM_LRU_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Virtual Memory\VM_MFU_UC.resx">
+      <DependentUpon>VM_MFU_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Virtual Memory\VM_Optimal_UC.resx">
+      <DependentUpon>VM_Optimal_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Virtual Memory\VM_SecondChance_UC.resx">
+      <DependentUpon>VM_SecondChance_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,5 +190,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CPU_1-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ram-WF.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
