@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace OSAlgorithmsSimulator
@@ -11,7 +12,14 @@ namespace OSAlgorithmsSimulator
 		[STAThread]
 		static void Main()
 		{
-			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(DemoCommon.FindLicenseKey()); 
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(DemoCommon.FindLicenseKey());
+			ACMessageBox.MsgBoxConfig(
+				new Font(new FontFamily("Cantarell"), 20f, FontStyle.Regular), 
+				new Font(new FontFamily("Cantarell"), 16f, FontStyle.Regular), 
+				Color.FromArgb(51, 54, 63),
+				Color.White,
+				Color.FromArgb(28, 30, 35));
+			ACMessageBox.ShowSuccessMessage();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainDashboard());

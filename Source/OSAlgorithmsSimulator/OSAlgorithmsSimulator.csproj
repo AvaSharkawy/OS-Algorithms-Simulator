@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\CPU\FCFS_Algorithm.cs" />
+    <Compile Include="Data Models\CPU\Base\OSASProcessBase.cs" />
+    <Compile Include="Data Models\CPU\OSASProcess.cs" />
+    <Compile Include="Dialogs\ACMessageBox.cs" />
+    <Compile Include="Extensions\AC_Extensions.cs" />
+    <Compile Include="Extensions\OSASProcessExtensions.cs" />
     <Compile Include="MainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,12 @@
     </Compile>
     <Compile Include="User Controls\CPU\CPU_SJF_UC.Designer.cs">
       <DependentUpon>CPU_SJF_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\GanttChart_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\GanttChart_UC.Designer.cs">
+      <DependentUpon>GanttChart_UC.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Virtual Memory\VM_FIFO_UC.cs">
       <SubType>UserControl</SubType>
@@ -161,6 +173,9 @@
     <EmbeddedResource Include="User Controls\CPU\CPU_SJF_UC.resx">
       <DependentUpon>CPU_SJF_UC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\GanttChart_UC.resx">
+      <DependentUpon>GanttChart_UC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Virtual Memory\VM_FIFO_UC.resx">
       <DependentUpon>VM_FIFO_UC.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +217,23 @@
   <ItemGroup>
     <None Include="Resources\Ram-WF.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reload-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
