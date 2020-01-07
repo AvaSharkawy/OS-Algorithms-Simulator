@@ -17,14 +17,16 @@ namespace OSAlgorithmsSimulator.User_Controls
 		public GanttChart_UC()
 		{
 			InitializeComponent();
+			Processes = new List<OSASProcess>();
 		}
 
 		public GanttChart_UC(List<OSASProcess> processes)
 		{
+			InitializeComponent();
 			Processes = processes;
 		}
 
-		public void DrawGanttChart(UserControl uc)
+		public void DrawGanttChart()
 		{
 			if(Processes.Count <= 0)
 			{
@@ -54,9 +56,44 @@ namespace OSAlgorithmsSimulator.User_Controls
 			}
 
 			DGV.Visible = true;
+			lblNumbers.Text = string.Empty;
 
-			uc.Paint += new PaintEventHandler((object sender, PaintEventArgs e) =>
+			//foreach (var p in Processes)
+			//{
+			//	if (p == Processes.FirstOrDefault())
+			//	{
+			//		lblNumbers.Text += $"{p.StartTime}";
+
+
+			//		var sb = new StringBuilder();
+			//		sb.Insert(0, " ", Math.Max(5, p.BurstTime + 7));
+			//		lblNumbers.Text += $"{sb.ToString()}";
+
+
+			//		lblNumbers.Text += $"{p.FinishTime}";
+			//		lastFinish = p.FinishTime;
+			//	}
+			//	else
+			//	{
+			//		if (lastFinish != p.StartTime)
+			//		{
+			//			var nullTime = p.StartTime - lastFinish;
+			//			var sb = new StringBuilder();
+			//			sb.Insert(0, " ", nullTime);
+			//			lblNumbers.Text += $"{sb.ToString()}";
+			//			lblNumbers.Text += $"{p.StartTime}";
+			//		}
+			//		var sbb = new StringBuilder();
+			//		sbb.Insert(0, " ", Math.Max(5, p.BurstTime + 7));
+			//		lblNumbers.Text += $"{sbb.ToString()}";
+			//		lblNumbers.Text += $"{p.FinishTime}";
+			//		lastFinish = p.FinishTime;
+			//	}
+			//}
+
+			this.Paint += new PaintEventHandler((object sender, PaintEventArgs e) =>
 			{
+				lblNumbers.Text = string.Empty;
 				var graphics = e.Graphics;
 				var currentX = DGV.Location.X;
 				lastFinish = 0;
@@ -64,8 +101,17 @@ namespace OSAlgorithmsSimulator.User_Controls
 				{
 					if (p == Processes.FirstOrDefault())
 					{
+						lblNumbers.Text += $"{p.StartTime}";
+
 						graphics.DrawString(p.StartTime.ToString(), new Font("consolas", 10), new SolidBrush(Color.White), currentX, DGV.Location.Y + 60);
+
+						var sb = new StringBuilder();
+						sb.Insert(0, " ", p.BurstTime);
+						lblNumbers.Text += $"{sb.ToString()}";
+
 						currentX += (40 + p.BurstTime * 10);
+
+						lblNumbers.Text += $"{p.FinishTime}";
 						graphics.DrawString(p.FinishTime.ToString(), new Font("consolas", 10), new SolidBrush(Color.White), currentX, DGV.Location.Y + 60);
 						lastFinish = p.FinishTime;
 					}
@@ -75,16 +121,27 @@ namespace OSAlgorithmsSimulator.User_Controls
 						{
 							var nullTime = p.StartTime - lastFinish;
 							currentX += nullTime * 10;
+							var sb = new StringBuilder();
+							sb.Insert(0, " ", nullTime);
+							lblNumbers.Text += $"{sb.ToString()}";
+							lblNumbers.Text += $"{p.StartTime}";
 							graphics.DrawString(p.StartTime.ToString(), new Font("consolas", 10), new SolidBrush(Color.White), currentX, DGV.Location.Y + 60);
 						}
-
+						var sbb = new StringBuilder();
+						sbb.Insert(0, " ", p.BurstTime);
+						lblNumbers.Text += $"{sbb.ToString()}";
+						lblNumbers.Text += $"{p.FinishTime}";
 						currentX += (40 + p.BurstTime * 10);
 						graphics.DrawString(p.FinishTime.ToString(), new Font("consolas", 10), new SolidBrush(Color.White), currentX, DGV.Location.Y + 60);
 						lastFinish = p.FinishTime;
 					}
 				}
 			});
+			DGV.Visible = false;
+			this.Invalidate(true);
 		}
+
+		
 
 	}
 }

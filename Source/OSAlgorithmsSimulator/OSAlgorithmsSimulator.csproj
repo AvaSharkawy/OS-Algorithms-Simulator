@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\CPU\FCFS_Algorithm.cs" />
+    <Compile Include="Algorithms\CPU\SJF_Algorithm.cs" />
     <Compile Include="Data Models\CPU\Base\OSASProcessBase.cs" />
     <Compile Include="Data Models\CPU\OSASProcess.cs" />
     <Compile Include="Dialogs\ACMessageBox.cs" />

@@ -76,9 +76,9 @@ namespace OSAlgorithmsSimulator
 		{
 			foreach (Control control in containerPanel.Controls)
 			{
-				if (control is Button btn)
-					if (btn != senderBtn)
-						btn.BackColor = Color.Transparent;
+				if (control is Button)
+					if ((control as Button) != senderBtn)
+						(control as Button).BackColor = Color.Transparent;
 			}
 			senderBtn.BackColor = Color.FromArgb(39, 42, 49);
 		}

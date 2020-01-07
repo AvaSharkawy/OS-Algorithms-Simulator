@@ -19,7 +19,6 @@ namespace OSAlgorithmsSimulator
 				Color.FromArgb(51, 54, 63),
 				Color.White,
 				Color.FromArgb(28, 30, 35));
-			ACMessageBox.ShowSuccessMessage();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainDashboard());

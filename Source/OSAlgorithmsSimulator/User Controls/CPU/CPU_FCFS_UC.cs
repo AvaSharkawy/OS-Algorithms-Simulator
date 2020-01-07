@@ -24,7 +24,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 		public OSASProcess SelectedProcess
 		{
-			get => mProcess;
+			get { return mProcess; }
 			set
 			{
 				mProcess = value;
@@ -40,7 +40,41 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 		{
 			InitializeComponent();
 
-			//Processes = new List<OSASProcess>();
+			Processes = new List<OSASProcess>()
+			{
+				new OSASProcess
+				{
+					Id = 1,
+					Name = "P0",
+					ArrivalTime = 3,
+					BurstTime = 2,
+					RemainingTime = 2
+				},
+				new OSASProcess
+				{
+					Id = 2,
+					Name = "P1",
+					ArrivalTime = 2,
+					BurstTime = 4,
+					RemainingTime = 4
+				},
+				new OSASProcess
+				{
+					Id = 3,
+					Name = "P2",
+					ArrivalTime = 0,
+					BurstTime = 6,
+					RemainingTime = 6
+				},
+				new OSASProcess
+				{
+					Id = 4,
+					Name = "P3",
+					ArrivalTime = 1,
+					BurstTime = 4,
+					RemainingTime = 4
+				},
+			};
 
 			//var FSFC = new FCFS_Algorithm(new List<OSASProcess>
 			//{
@@ -81,7 +115,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 		void RefreshDGV(List<OSASProcess> processes, bool showColumns = false)
 		{
-			ProDGV.DataSource = processes.AC_AsDataTable();
+			ProDGV.DataSource = processes.Where(a => a.Id > -1).AC_AsDataTable();
 			VisualiseProDGV(showColumns);
 		}
 
@@ -137,7 +171,9 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				Id = ProDGV.Rows.Count + 1,
 				Name = txtProName.Text,
 				ArrivalTime = Convert.ToInt32(numArrivalTime.Value),
-				BurstTime = Convert.ToInt32(numBurstTime.Value)
+				BurstTime = Convert.ToInt32(numBurstTime.Value),
+				RemainingTime = Convert.ToInt32(numBurstTime.Value),
+				StartTime = -1
 			};
 
 			Processes.Add(p);
@@ -158,6 +194,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).Name = txtProName.Text;
 			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).ArrivalTime = Convert.ToInt32(numArrivalTime.Value);
 			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).BurstTime = Convert.ToInt32(numBurstTime.Value);
+			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).RemainingTime = Convert.ToInt32(numBurstTime.Value);
 
 			RefreshDGV(Processes);
 			SelectedProcess = Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id));
@@ -189,21 +226,22 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				return;
 			}
 
-			var fcfs = new FCFS_Algorithm(Processes);
+			var fcfs = new SJF_Algorithm(Processes,true);
 
 			fcfs.CalculateProcesses();
 
-			if (!fcfs.CalculatedSuccessfully)
-			{
-				ACMessageBox.ShowFailedMessage();
-				return;
-			}
-
 			TerminatedProcess = fcfs.TerminatedProcesses;
-			TerminatedProcess.DrawGanttChart(DGV, this, GbGanttChart.Location.Y + pnlGanttContainer.Location.Y);
+			//TerminatedProcess.DrawGanttChart(DGV, this, GbGanttChart.Location.Y + pnlGanttContainer.Location.Y);
+			var gantt = new GanttChart_UC(TerminatedProcess);
+			gantt.DrawGanttChart();
+			GbGanttChart.Controls.Add(gantt);
+			gantt.Dock = DockStyle.Top;
+			gantt.Height = 100;
 
-			lblAVGWait.Text = $"Wait Time AVG = {TerminatedProcess.Sum(a => a.WaitTime) / TerminatedProcess.Count}";
-			lblAVGTA.Text = $"Turn-around Time AVG = {TerminatedProcess.Sum(a => a.TurnAroundTime) / TerminatedProcess.Count}";
+			var count = TerminatedProcess.GroupBy(a=>a.Id).Select(a=>a.FirstOrDefault()).ToList().Count;
+
+			lblAVGWait.Text = $"Wait Time AVG = {TerminatedProcess.Sum(a => a.WaitTime) / (float)count}";
+			lblAVGTA.Text = $"Turn-around Time AVG = {TerminatedProcess.Sum(a => a.TurnAroundTime) / (float)count}";
 
 			RefreshDGV(TerminatedProcess, true);
 			tlpProFields.Enabled = false;
