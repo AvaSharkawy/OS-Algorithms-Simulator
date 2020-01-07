@@ -9,27 +9,8 @@ namespace OSAlgorithmsSimulator
 	/// <summary>
 	/// A class to calculate process using FCFS algorithm
 	/// </summary>
-	public class FCFS_Algorithm
+	public class FCFS_Algorithm : CPUAlgorithmBase
 	{
-		#region Public Properties
-
-		/// <summary>
-		/// List of original processes before calculations
-		/// </summary>
-		public List<OSASProcess> Processes { get; set; }
-
-		/// <summary>
-		/// List of terminated(finished) processes
-		/// </summary>
-		public List<OSASProcess> TerminatedProcesses { get; set; }
-
-		/// <summary>
-		/// A flag to determine of calculate method finished without problems
-		/// </summary>
-		public bool CalculatedSuccessfully { get; set; } = false;
-
-		#endregion
-
 		#region Constructor
 
 		/// <summary>
@@ -53,6 +34,8 @@ namespace OSAlgorithmsSimulator
 
 		#endregion
 
+		#region Algorithm Calculate Methods
+
 		public void CalculateProcesses()
 		{
 			if (Processes.Count <= 0)
@@ -64,10 +47,9 @@ namespace OSAlgorithmsSimulator
 
 			var currentTime = 0;
 
-
-			while(Processes.Count > 0)
+			while (Processes.Count > 0)
 			{
-				if(Processes[0].ArrivalTime > currentTime)
+				if (Processes[0].ArrivalTime > currentTime)
 				{
 					var process = new OSASProcess();
 
@@ -107,5 +89,6 @@ namespace OSAlgorithmsSimulator
 			CalculatedSuccessfully = true;
 		}
 
+		#endregion
 	}
 }

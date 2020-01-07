@@ -9,13 +9,9 @@ namespace OSAlgorithmsSimulator
 	/// <summary>
 	/// A class to represent CPU Shortest Job First algorithm
 	/// </summary>
-	public class SJF_Algorithm
+	public class SJF_Algorithm : CPUAlgorithmBase
 	{
 		#region Public Properties
-
-		public List<OSASProcess> Processes { get; set; }
-
-		public List<OSASProcess> TerminatedProcesses { get; set; }
 
 		public bool Preemptive { get; set; }
 
@@ -38,7 +34,7 @@ namespace OSAlgorithmsSimulator
 		/// </summary>
 		/// <param name="processes">The processes to calculate</param>
 		/// <param name="preemitive">Indicates if we should use preemptive algorithm</param>
-		public SJF_Algorithm(List<OSASProcess> processes,bool preemptive)
+		public SJF_Algorithm(List<OSASProcess> processes, bool preemptive)
 		{
 			Processes = processes;
 			TerminatedProcesses = new List<OSASProcess>();
@@ -47,26 +43,31 @@ namespace OSAlgorithmsSimulator
 
 		#endregion
 
+		#region Algorithm Calculate Methods
+
 		public void CalculateProcesses()
 		{
+			if (Processes.Count <= 0)
+				return;
+
 			if (Preemptive)
 				CalculatePreemptive();
 			else
 				CalculateNonPreemptive();
 		}
 
-		public void CalculateNonPreemptive()
+		void CalculateNonPreemptive()
 		{
 			List<OSASProcess> ArrivedProcess = new List<OSASProcess>();
 
 			Processes = Processes.OrderBy(a => a.ArrivalTime).ToList();
 
 			var currentTime = 0;
-			while(Processes.Count > 0)
+			while (Processes.Count > 0)
 			{
 				ArrivedProcess = Processes.Where(a => a.ArrivalTime <= currentTime).ToList();
 
-				if(ArrivedProcess.Count == 0)
+				if (ArrivedProcess.Count == 0)
 				{
 					var process = new OSASProcess();
 					process.Id = -1;
@@ -76,11 +77,12 @@ namespace OSAlgorithmsSimulator
 					process.RemainingTime = 0;
 					currentTime = process.FinishTime;
 					TerminatedProcesses.Add(process);
+					continue;
 				}
 
 				ArrivedProcess = ArrivedProcess.OrderBy(a => a.BurstTime).ToList();
 
-				foreach(var p in ArrivedProcess)
+				foreach (var p in ArrivedProcess)
 				{
 					p.StartTime = currentTime;
 
@@ -98,9 +100,10 @@ namespace OSAlgorithmsSimulator
 					TerminatedProcesses.Add(p);
 				}
 			}
+			CalculatedSuccessfully = true;
 		}
 
-		public void CalculatePreemptive()
+		void CalculatePreemptive()
 		{
 			List<OSASProcess> ArrivedProcess = new List<OSASProcess>();
 
@@ -108,9 +111,9 @@ namespace OSAlgorithmsSimulator
 
 			var currentTime = 0;
 
-			while(Processes.Count > 0)
+			while (Processes.Count > 0)
 			{
-				point:
+			point:
 				ArrivedProcess = Processes.Where(a => a.ArrivalTime <= currentTime).ToList();
 
 				if (ArrivedProcess.Count == 0)
@@ -122,13 +125,13 @@ namespace OSAlgorithmsSimulator
 					process.FinishTime = process.StartTime + process.BurstTime;
 					process.RemainingTime = 0;
 					currentTime = process.FinishTime;
-
 					TerminatedProcesses.Add(process);
+					continue;
 				}
 
 				ArrivedProcess = ArrivedProcess.OrderBy(a => a.RemainingTime).ToList();
 
-				foreach(var p in ArrivedProcess)
+				foreach (var p in ArrivedProcess)
 				{
 					p.StartTime = currentTime;
 
@@ -140,7 +143,7 @@ namespace OSAlgorithmsSimulator
 						var minTime = MinimumTime(Processes, p, currentTime);
 						if (minTime.HasValue)
 						{
-							if(p.RemainingTime > minTime.Value)
+							if (p.RemainingTime > minTime.Value)
 							{
 								var process = new OSASProcess(p)
 								{
@@ -158,7 +161,7 @@ namespace OSAlgorithmsSimulator
 					p.TurnAroundTime = p.FinishTime - p.ArrivalTime;
 					TerminatedProcesses.Add(p);
 
-					if(p.RemainingTime <=0)
+					if (p.RemainingTime <= 0)
 					{
 						Processes.Remove(p);
 						break;
@@ -166,10 +169,14 @@ namespace OSAlgorithmsSimulator
 				}
 
 			}
+			CalculatedSuccessfully = true;
 		}
 
+		#endregion
 
-		private int? MinimumTime(List<OSASProcess> processes,OSASProcess process,int currentTime)
+		#region Helper Methods
+
+		private int? MinimumTime(List<OSASProcess> processes, OSASProcess process, int currentTime)
 		{
 			var proc = processes.Where(b => b.Id != process.Id)
 							.Where(a => a.ArrivalTime <= currentTime).ToList();
@@ -186,5 +193,7 @@ namespace OSAlgorithmsSimulator
 			else
 				return process.ArrivalTime;
 		}
+
+		#endregion
 	}
 }
