@@ -160,6 +160,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 			RefreshDGV(Processes);
 			tlpProFields.AC_ClearFields();
 			txtProName.Focus();
+			SelectedProcess = null;
 		}
 
 		private void BtnEdit_Click(object sender, EventArgs e)
@@ -170,13 +171,12 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				return;
 			}
 
-			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).Name = txtProName.Text;
-			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).ArrivalTime = Convert.ToInt32(numArrivalTime.Value);
-			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).BurstTime = Convert.ToInt32(numBurstTime.Value);
-			Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)).RemainingTime = Convert.ToInt32(numBurstTime.Value);
+			SelectedProcess.Name = txtProName.Text;
+			SelectedProcess.ArrivalTime = Convert.ToInt32(numArrivalTime.Value);
+			SelectedProcess.BurstTime = Convert.ToInt32(numBurstTime.Value);
+			SelectedProcess.RemainingTime = Convert.ToInt32(numBurstTime.Value);
 
 			RefreshDGV(Processes);
-			SelectedProcess = Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id));
 		}
 
 		private void BtnDelete_Click(object sender, EventArgs e)
@@ -187,7 +187,8 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				return;
 			}
 
-			Processes.Remove(Processes.FirstOrDefault(a => a.Id.Equals(SelectedProcess.Id)));
+			Processes.Remove(SelectedProcess);
+			SelectedProcess = null;
 			RefreshDGV(Processes);
 		}
 
@@ -219,8 +220,8 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			var count = TerminatedProcess.GroupBy(a => a.Id).Select(a => a.FirstOrDefault()).ToList().Count;
 
-			lblAVGWait.Text = $"Wait Time AVG = {TerminatedProcess.Sum(a => a.WaitTime) / (float)count}";
-			lblAVGTA.Text = $"Turn-around Time AVG = {TerminatedProcess.Sum(a => a.TurnAroundTime) / (float)count}";
+			lblAVGWait.Text = $"Wait Time AVG = {(TerminatedProcess.Sum(a => a.WaitTime) / (float)count).ToString("0.00")}";
+			lblAVGTA.Text = $"Turn-around Time AVG = {(TerminatedProcess.Sum(a => a.TurnAroundTime) / (float)count).ToString("0.00")}";
 
 			RefreshDGV(TerminatedProcess, true);
 			tlpProFields.Enabled = false;
@@ -233,6 +234,9 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			RefreshDGV(Processes, false);
 			tlpProFields.Enabled = true;
+
+			SelectedProcess = null;
+			tlpProFields.AC_ClearFields();
 
 			numTimeUnit.Value = 0;
 

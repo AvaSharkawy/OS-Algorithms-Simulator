@@ -512,6 +512,7 @@
 			this.ProDGV.RowTemplate.Height = 40;
 			this.ProDGV.RowTemplate.ReadOnly = true;
 			this.ProDGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ProDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.ProDGV.Size = new System.Drawing.Size(1178, 264);
 			this.ProDGV.TabIndex = 4;
 			this.ProDGV.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProDGV_CellClick);

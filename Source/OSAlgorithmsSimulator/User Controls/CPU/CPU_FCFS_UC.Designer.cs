@@ -509,6 +509,7 @@
 			this.ProDGV.RowTemplate.Height = 40;
 			this.ProDGV.RowTemplate.ReadOnly = true;
 			this.ProDGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ProDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.ProDGV.Size = new System.Drawing.Size(1178, 264);
 			this.ProDGV.TabIndex = 4;
 			this.ProDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProDGV_CellClick);
@@ -625,11 +626,11 @@
 			// 
 			this.lblAVGWait.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.lblAVGWait.AutoSize = true;
-			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 14F);
 			this.lblAVGWait.ForeColor = System.Drawing.Color.White;
 			this.lblAVGWait.Location = new System.Drawing.Point(10, 17);
 			this.lblAVGWait.Name = "lblAVGWait";
-			this.lblAVGWait.Size = new System.Drawing.Size(197, 29);
+			this.lblAVGWait.Size = new System.Drawing.Size(170, 25);
 			this.lblAVGWait.TabIndex = 19;
 			this.lblAVGWait.Text = "Wait Time AVG = ";
 			this.lblAVGWait.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -639,11 +640,11 @@
 			// 
 			this.lblAVGTA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.lblAVGTA.AutoSize = true;
-			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 14F);
 			this.lblAVGTA.ForeColor = System.Drawing.Color.White;
-			this.lblAVGTA.Location = new System.Drawing.Point(332, 17);
+			this.lblAVGTA.Location = new System.Drawing.Point(310, 17);
 			this.lblAVGTA.Name = "lblAVGTA";
-			this.lblAVGTA.Size = new System.Drawing.Size(278, 29);
+			this.lblAVGTA.Size = new System.Drawing.Size(236, 25);
 			this.lblAVGTA.TabIndex = 19;
 			this.lblAVGTA.Text = "Turnarround Time AVG = ";
 			this.lblAVGTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

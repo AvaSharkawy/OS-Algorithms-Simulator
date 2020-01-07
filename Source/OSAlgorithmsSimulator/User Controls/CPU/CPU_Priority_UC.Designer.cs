@@ -548,6 +548,7 @@
 			this.ProDGV.RowTemplate.Height = 40;
 			this.ProDGV.RowTemplate.ReadOnly = true;
 			this.ProDGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ProDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.ProDGV.Size = new System.Drawing.Size(1178, 264);
 			this.ProDGV.TabIndex = 4;
 			this.ProDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProDGV_CellClick);
@@ -676,11 +677,11 @@
 			inactiveStateCollection1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			inactiveStateCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
 			this.TglAscending.InactiveState = inactiveStateCollection1;
-			this.TglAscending.Location = new System.Drawing.Point(670, 7);
+			this.TglAscending.Location = new System.Drawing.Point(695, 11);
 			this.TglAscending.Margin = new System.Windows.Forms.Padding(3, 10, 120, 10);
 			this.TglAscending.MinimumSize = new System.Drawing.Size(52, 20);
 			this.TglAscending.Name = "TglAscending";
-			this.TglAscending.Size = new System.Drawing.Size(109, 52);
+			this.TglAscending.Size = new System.Drawing.Size(90, 40);
 			sliderCollection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			sliderCollection1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
 			sliderCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -708,7 +709,7 @@
 			this.lblAVGWait.AutoSize = true;
 			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 14F);
 			this.lblAVGWait.ForeColor = System.Drawing.Color.White;
-			this.lblAVGWait.Location = new System.Drawing.Point(4, 19);
+			this.lblAVGWait.Location = new System.Drawing.Point(10, 19);
 			this.lblAVGWait.Name = "lblAVGWait";
 			this.lblAVGWait.Size = new System.Drawing.Size(170, 25);
 			this.lblAVGWait.TabIndex = 19;
@@ -722,7 +723,7 @@
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Cantarell", 14F);
 			this.label5.ForeColor = System.Drawing.Color.White;
-			this.label5.Location = new System.Drawing.Point(609, 19);
+			this.label5.Location = new System.Drawing.Point(634, 19);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(55, 25);
 			this.label5.TabIndex = 19;
@@ -735,7 +736,7 @@
 			this.lblAVGTA.AutoSize = true;
 			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 14F);
 			this.lblAVGTA.ForeColor = System.Drawing.Color.White;
-			this.lblAVGTA.Location = new System.Drawing.Point(234, 19);
+			this.lblAVGTA.Location = new System.Drawing.Point(257, 19);
 			this.lblAVGTA.Name = "lblAVGTA";
 			this.lblAVGTA.Size = new System.Drawing.Size(236, 25);
 			this.lblAVGTA.TabIndex = 19;

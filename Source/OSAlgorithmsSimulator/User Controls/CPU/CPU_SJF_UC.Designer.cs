@@ -28,6 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			Syncfusion.Windows.Forms.Tools.ActiveStateCollection activeStateCollection1 = new Syncfusion.Windows.Forms.Tools.ActiveStateCollection();
+			Syncfusion.Windows.Forms.Tools.InactiveStateCollection inactiveStateCollection1 = new Syncfusion.Windows.Forms.Tools.InactiveStateCollection();
+			Syncfusion.Windows.Forms.Tools.SliderCollection sliderCollection1 = new Syncfusion.Windows.Forms.Tools.SliderCollection();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,13 +41,11 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			Syncfusion.Windows.Forms.Tools.ActiveStateCollection activeStateCollection1 = new Syncfusion.Windows.Forms.Tools.ActiveStateCollection();
-			Syncfusion.Windows.Forms.Tools.InactiveStateCollection inactiveStateCollection1 = new Syncfusion.Windows.Forms.Tools.InactiveStateCollection();
-			Syncfusion.Windows.Forms.Tools.SliderCollection sliderCollection1 = new Syncfusion.Windows.Forms.Tools.SliderCollection();
 			this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.tlpProDataMain = new System.Windows.Forms.TableLayoutPanel();
 			this.tlpProFields = new System.Windows.Forms.TableLayoutPanel();
+			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.tlpProButtons = new System.Windows.Forms.TableLayoutPanel();
@@ -56,6 +57,7 @@
 			this.txtProName = new System.Windows.Forms.TextBox();
 			this.numArrivalTime = new System.Windows.Forms.NumericUpDown();
 			this.numBurstTime = new System.Windows.Forms.NumericUpDown();
+			this.TglPreemptive = new Syncfusion.Windows.Forms.Tools.ToggleButton();
 			this.GbGanttChart = new System.Windows.Forms.GroupBox();
 			this.pnlGanttContainer = new System.Windows.Forms.Panel();
 			this.DGV = new System.Windows.Forms.DataGridView();
@@ -77,8 +79,6 @@
 			this.lblAVGTA = new System.Windows.Forms.Label();
 			this.BtnReset = new System.Windows.Forms.Button();
 			this.BtnStartScheduling = new System.Windows.Forms.Button();
-			this.TglPreemptive = new Syncfusion.Windows.Forms.Tools.ToggleButton();
-			this.label4 = new System.Windows.Forms.Label();
 			this.tlpMain.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.tlpProDataMain.SuspendLayout();
@@ -86,12 +86,12 @@
 			this.tlpProButtons.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numArrivalTime)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numBurstTime)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.TglPreemptive)).BeginInit();
 			this.GbGanttChart.SuspendLayout();
 			this.pnlGanttContainer.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ProDGV)).BeginInit();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.TglPreemptive)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tlpMain
@@ -148,7 +148,6 @@
 			this.tlpProFields.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
 			this.tlpProFields.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
 			this.tlpProFields.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tlpProFields.Controls.Add(this.label4, 0, 3);
 			this.tlpProFields.Controls.Add(this.label3, 0, 2);
 			this.tlpProFields.Controls.Add(this.label2, 0, 1);
 			this.tlpProFields.Controls.Add(this.tlpProButtons, 2, 0);
@@ -156,24 +155,35 @@
 			this.tlpProFields.Controls.Add(this.txtProName, 1, 0);
 			this.tlpProFields.Controls.Add(this.numArrivalTime, 1, 1);
 			this.tlpProFields.Controls.Add(this.numBurstTime, 1, 2);
-			this.tlpProFields.Controls.Add(this.TglPreemptive, 1, 3);
 			this.tlpProFields.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tlpProFields.Location = new System.Drawing.Point(3, 3);
 			this.tlpProFields.Name = "tlpProFields";
-			this.tlpProFields.RowCount = 4;
+			this.tlpProFields.RowCount = 3;
 			this.tlpProFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
 			this.tlpProFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
 			this.tlpProFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
-			this.tlpProFields.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
 			this.tlpProFields.Size = new System.Drawing.Size(580, 279);
 			this.tlpProFields.TabIndex = 0;
+			// 
+			// label4
+			// 
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Cantarell", 14F);
+			this.label4.ForeColor = System.Drawing.Color.White;
+			this.label4.Location = new System.Drawing.Point(575, 19);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(109, 25);
+			this.label4.TabIndex = 7;
+			this.label4.Text = "Preemptive";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// label3
 			// 
 			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3.Location = new System.Drawing.Point(3, 138);
+			this.label3.Location = new System.Drawing.Point(3, 184);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(168, 69);
+			this.label3.Size = new System.Drawing.Size(168, 95);
 			this.label3.TabIndex = 3;
 			this.label3.Text = "Burst time*";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,9 +191,9 @@
 			// label2
 			// 
 			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2.Location = new System.Drawing.Point(3, 69);
+			this.label2.Location = new System.Drawing.Point(3, 92);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(168, 69);
+			this.label2.Size = new System.Drawing.Size(168, 92);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Arrival time";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -201,7 +211,7 @@
 			this.tlpProButtons.Location = new System.Drawing.Point(409, 3);
 			this.tlpProButtons.Name = "tlpProButtons";
 			this.tlpProButtons.RowCount = 4;
-			this.tlpProFields.SetRowSpan(this.tlpProButtons, 4);
+			this.tlpProFields.SetRowSpan(this.tlpProButtons, 3);
 			this.tlpProButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
 			this.tlpProButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
 			this.tlpProButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -298,7 +308,7 @@
 			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label1.Location = new System.Drawing.Point(3, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(168, 69);
+			this.label1.Size = new System.Drawing.Size(168, 92);
 			this.label1.TabIndex = 1;
 			this.label1.Text = "Process name*";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -320,7 +330,7 @@
 			this.numArrivalTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
 			this.numArrivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.numArrivalTime.ForeColor = System.Drawing.Color.White;
-			this.numArrivalTime.Location = new System.Drawing.Point(177, 94);
+			this.numArrivalTime.Location = new System.Drawing.Point(177, 117);
 			this.numArrivalTime.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
 			this.numArrivalTime.Maximum = new decimal(new int[] {
             100000,
@@ -337,7 +347,7 @@
 			this.numBurstTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
 			this.numBurstTime.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.numBurstTime.ForeColor = System.Drawing.Color.White;
-			this.numBurstTime.Location = new System.Drawing.Point(177, 163);
+			this.numBurstTime.Location = new System.Drawing.Point(177, 209);
 			this.numBurstTime.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
 			this.numBurstTime.Maximum = new decimal(new int[] {
             100000,
@@ -348,6 +358,47 @@
 			this.numBurstTime.Size = new System.Drawing.Size(226, 45);
 			this.numBurstTime.TabIndex = 3;
 			this.numBurstTime.Enter += new System.EventHandler(this.numArrivalTime_Enter);
+			// 
+			// TglPreemptive
+			// 
+			activeStateCollection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+			activeStateCollection1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+			activeStateCollection1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			activeStateCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(176)))));
+			this.TglPreemptive.ActiveState = activeStateCollection1;
+			this.TglPreemptive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.TglPreemptive.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.TglPreemptive.ForeColor = System.Drawing.Color.Black;
+			inactiveStateCollection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+			inactiveStateCollection1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			inactiveStateCollection1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			inactiveStateCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+			this.TglPreemptive.InactiveState = inactiveStateCollection1;
+			this.TglPreemptive.Location = new System.Drawing.Point(692, 12);
+			this.TglPreemptive.Margin = new System.Windows.Forms.Padding(5);
+			this.TglPreemptive.MinimumSize = new System.Drawing.Size(52, 20);
+			this.TglPreemptive.Name = "TglPreemptive";
+			this.TglPreemptive.Size = new System.Drawing.Size(90, 40);
+			sliderCollection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			sliderCollection1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+			sliderCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			sliderCollection1.InactiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+			sliderCollection1.InactiveHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.TglPreemptive.Slider = sliderCollection1;
+			this.TglPreemptive.TabIndex = 6;
+			this.TglPreemptive.Text = "toggleButton1";
+			this.TglPreemptive.ThemeName = "";
+			this.TglPreemptive.ThemeStyle.ActiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.TglPreemptive.ThemeStyle.ActiveBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.TglPreemptive.ThemeStyle.ActiveHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.TglPreemptive.ThemeStyle.ActiveHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.TglPreemptive.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+			this.TglPreemptive.ThemeStyle.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+			this.TglPreemptive.ThemeStyle.InActiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+			this.TglPreemptive.ThemeStyle.InActiveBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.TglPreemptive.ThemeStyle.InActiveForeColor = System.Drawing.Color.White;
+			this.TglPreemptive.ThemeStyle.InActiveHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+			this.TglPreemptive.ThemeStyle.InActiveHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
 			// 
 			// GbGanttChart
 			// 
@@ -518,6 +569,7 @@
 			this.ProDGV.RowTemplate.Height = 40;
 			this.ProDGV.RowTemplate.ReadOnly = true;
 			this.ProDGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ProDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.ProDGV.Size = new System.Drawing.Size(1178, 264);
 			this.ProDGV.TabIndex = 4;
 			this.ProDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProDGV_CellClick);
@@ -620,10 +672,12 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.label4);
 			this.panel1.Controls.Add(this.lblAVGWait);
 			this.panel1.Controls.Add(this.lblAVGTA);
 			this.panel1.Controls.Add(this.BtnReset);
 			this.panel1.Controls.Add(this.BtnStartScheduling);
+			this.panel1.Controls.Add(this.TglPreemptive);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 606);
 			this.panel1.Name = "panel1";
@@ -634,11 +688,11 @@
 			// 
 			this.lblAVGWait.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.lblAVGWait.AutoSize = true;
-			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 14F);
 			this.lblAVGWait.ForeColor = System.Drawing.Color.White;
-			this.lblAVGWait.Location = new System.Drawing.Point(10, 17);
+			this.lblAVGWait.Location = new System.Drawing.Point(9, 19);
 			this.lblAVGWait.Name = "lblAVGWait";
-			this.lblAVGWait.Size = new System.Drawing.Size(197, 29);
+			this.lblAVGWait.Size = new System.Drawing.Size(170, 25);
 			this.lblAVGWait.TabIndex = 19;
 			this.lblAVGWait.Text = "Wait Time AVG = ";
 			this.lblAVGWait.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -648,11 +702,11 @@
 			// 
 			this.lblAVGTA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.lblAVGTA.AutoSize = true;
-			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 14F);
 			this.lblAVGTA.ForeColor = System.Drawing.Color.White;
-			this.lblAVGTA.Location = new System.Drawing.Point(332, 17);
+			this.lblAVGTA.Location = new System.Drawing.Point(239, 19);
 			this.lblAVGTA.Name = "lblAVGTA";
-			this.lblAVGTA.Size = new System.Drawing.Size(278, 29);
+			this.lblAVGTA.Size = new System.Drawing.Size(236, 25);
 			this.lblAVGTA.TabIndex = 19;
 			this.lblAVGTA.Text = "Turnarround Time AVG = ";
 			this.lblAVGTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -700,57 +754,6 @@
 			this.BtnStartScheduling.UseVisualStyleBackColor = false;
 			this.BtnStartScheduling.Click += new System.EventHandler(this.BtnStartScheduling_Click);
 			// 
-			// TglPreemptive
-			// 
-			activeStateCollection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-			activeStateCollection1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-			activeStateCollection1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			activeStateCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(176)))));
-			this.TglPreemptive.ActiveState = activeStateCollection1;
-			this.TglPreemptive.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.TglPreemptive.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.TglPreemptive.ForeColor = System.Drawing.Color.Black;
-			inactiveStateCollection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-			inactiveStateCollection1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-			inactiveStateCollection1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			inactiveStateCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-			this.TglPreemptive.InactiveState = inactiveStateCollection1;
-			this.TglPreemptive.Location = new System.Drawing.Point(177, 217);
-			this.TglPreemptive.Margin = new System.Windows.Forms.Padding(3, 10, 120, 10);
-			this.TglPreemptive.MinimumSize = new System.Drawing.Size(52, 20);
-			this.TglPreemptive.Name = "TglPreemptive";
-			this.TglPreemptive.Size = new System.Drawing.Size(109, 52);
-			sliderCollection1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			sliderCollection1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-			sliderCollection1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			sliderCollection1.InactiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-			sliderCollection1.InactiveHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.TglPreemptive.Slider = sliderCollection1;
-			this.TglPreemptive.TabIndex = 6;
-			this.TglPreemptive.Text = "toggleButton1";
-			this.TglPreemptive.ThemeName = "";
-			this.TglPreemptive.ThemeStyle.ActiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.TglPreemptive.ThemeStyle.ActiveBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.TglPreemptive.ThemeStyle.ActiveHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.TglPreemptive.ThemeStyle.ActiveHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.TglPreemptive.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-			this.TglPreemptive.ThemeStyle.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-			this.TglPreemptive.ThemeStyle.InActiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-			this.TglPreemptive.ThemeStyle.InActiveBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.TglPreemptive.ThemeStyle.InActiveForeColor = System.Drawing.Color.White;
-			this.TglPreemptive.ThemeStyle.InActiveHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-			this.TglPreemptive.ThemeStyle.InActiveHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-			// 
-			// label4
-			// 
-			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label4.Location = new System.Drawing.Point(3, 207);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(168, 72);
-			this.label4.TabIndex = 7;
-			this.label4.Text = "Preemptive";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
 			// CPU_SJF_UC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -767,13 +770,13 @@
 			this.tlpProButtons.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.numArrivalTime)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numBurstTime)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.TglPreemptive)).EndInit();
 			this.GbGanttChart.ResumeLayout(false);
 			this.pnlGanttContainer.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ProDGV)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.TglPreemptive)).EndInit();
 			this.ResumeLayout(false);
 
 		}
