@@ -269,6 +269,20 @@ namespace OSAlgorithmsSimulator
 			return false;
 		}
 
+		/// <summary>
+		/// Converts <see cref="IEnumerable{T}"/> to <see cref="Stack{T}"/>
+		/// </summary>
+		/// <typeparam name="T">The data type</typeparam>
+		/// <param name="data">The data to convert</param>
+		/// <param name="defaultStack">To determine the data order in stack</param>
+		/// <returns></returns>
+		public static Stack<T> AC_ToStack<T>(this IEnumerable<T> data, bool defaultStack = true)
+		{
+			data = defaultStack ? data : data.Reverse();
+
+			return new Stack<T>(data);
+		}
+
 		#endregion
 
 		#region DataTable

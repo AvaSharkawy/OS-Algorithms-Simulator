@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace OSAlgorithmsSimulator.User_Controls.CPU
 {
 	public partial class CPU_FCFS_UC : UserControl
@@ -17,6 +18,8 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 		OSASProcess mProcess;
 
 		#endregion
+
+		#region Public Properties
 
 		public List<OSASProcess> Processes { get; set; } = new List<OSASProcess>();
 
@@ -36,6 +39,8 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 			}
 		}
 
+		#endregion
+
 		public CPU_FCFS_UC()
 		{
 			InitializeComponent();
@@ -45,34 +50,47 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				new OSASProcess
 				{
 					Id = 1,
-					Name = "P0",
-					ArrivalTime = 3,
-					BurstTime = 2,
-					RemainingTime = 2
+					Name = "P1",
+					ArrivalTime = 0,
+					BurstTime = 5,
+					RemainingTime = 5,
+					Priority = 2,
 				},
 				new OSASProcess
 				{
 					Id = 2,
-					Name = "P1",
-					ArrivalTime = 2,
-					BurstTime = 4,
-					RemainingTime = 4
+					Name = "P2",
+					ArrivalTime = 1,
+					BurstTime = 3,
+					RemainingTime = 3,
+					Priority = 1,
 				},
 				new OSASProcess
 				{
 					Id = 3,
-					Name = "P2",
-					ArrivalTime = 0,
-					BurstTime = 6,
-					RemainingTime = 6
+					Name = "P3",
+					ArrivalTime = 2,
+					BurstTime = 1,
+					RemainingTime = 1,
+					Priority = 0
 				},
 				new OSASProcess
 				{
 					Id = 4,
-					Name = "P3",
-					ArrivalTime = 1,
-					BurstTime = 4,
-					RemainingTime = 4
+					Name = "P4",
+					ArrivalTime = 3,
+					BurstTime = 2,
+					RemainingTime = 2,
+					Priority = 6
+				},
+				new OSASProcess
+				{
+					Id = 4,
+					Name = "P5",
+					ArrivalTime = 4,
+					BurstTime = 3,
+					RemainingTime = 3,
+					Priority = 6
 				},
 			};
 
@@ -226,7 +244,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				return;
 			}
 
-			var fcfs = new SJF_Algorithm(Processes,true);
+			var fcfs = new FCFS_Algorithm(Processes);
 
 			fcfs.CalculateProcesses();
 

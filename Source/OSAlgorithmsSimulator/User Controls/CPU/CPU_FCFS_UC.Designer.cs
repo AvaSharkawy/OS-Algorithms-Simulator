@@ -28,20 +28,19 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.tlpProDataMain = new System.Windows.Forms.TableLayoutPanel();
-			this.ProDGV = new System.Windows.Forms.DataGridView();
 			this.tlpProFields = new System.Windows.Forms.TableLayoutPanel();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -56,13 +55,9 @@
 			this.numBurstTime = new System.Windows.Forms.NumericUpDown();
 			this.GbGanttChart = new System.Windows.Forms.GroupBox();
 			this.pnlGanttContainer = new System.Windows.Forms.Panel();
-			this.lblAVGTA = new System.Windows.Forms.Label();
-			this.lblAVGWait = new System.Windows.Forms.Label();
 			this.DGV = new System.Windows.Forms.DataGridView();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.BtnReset = new System.Windows.Forms.Button();
-			this.BtnStartScheduling = new System.Windows.Forms.Button();
+			this.ProDGV = new System.Windows.Forms.DataGridView();
 			this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PArrivalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,10 +69,14 @@
 			this.PTurnAroundTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PIsWorking = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PRemainingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.lblAVGWait = new System.Windows.Forms.Label();
+			this.lblAVGTA = new System.Windows.Forms.Label();
+			this.BtnReset = new System.Windows.Forms.Button();
+			this.BtnStartScheduling = new System.Windows.Forms.Button();
 			this.tlpMain.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.tlpProDataMain.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ProDGV)).BeginInit();
 			this.tlpProFields.SuspendLayout();
 			this.tlpProButtons.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numArrivalTime)).BeginInit();
@@ -85,6 +84,7 @@
 			this.GbGanttChart.SuspendLayout();
 			this.pnlGanttContainer.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ProDGV)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -135,69 +135,6 @@
 			this.tlpProDataMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 285F));
 			this.tlpProDataMain.Size = new System.Drawing.Size(1172, 285);
 			this.tlpProDataMain.TabIndex = 0;
-			// 
-			// ProDGV
-			// 
-			this.ProDGV.AllowUserToAddRows = false;
-			this.ProDGV.AllowUserToDeleteRows = false;
-			this.ProDGV.AllowUserToResizeRows = false;
-			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.ProDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-			this.ProDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-			this.ProDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-			this.ProDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.ProDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Cantarell", 20F);
-			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ProDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-			this.ProDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.ProDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PId,
-            this.PName,
-            this.PArrivalTime,
-            this.PBurstTime,
-            this.PPriority,
-            this.PStartTime,
-            this.PFinishTime,
-            this.PWaitTime,
-            this.PTurnAroundTime,
-            this.PIsWorking,
-            this.PRemainingTime});
-			this.ProDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ProDGV.EnableHeadersVisualStyles = false;
-			this.ProDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
-			this.ProDGV.Location = new System.Drawing.Point(3, 337);
-			this.ProDGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.ProDGV.MultiSelect = false;
-			this.ProDGV.Name = "ProDGV";
-			this.ProDGV.ReadOnly = true;
-			this.ProDGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Cantarell", 20F);
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ProDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-			this.ProDGV.RowHeadersVisible = false;
-			this.ProDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Cantarell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(2);
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-			this.ProDGV.RowsDefaultCellStyle = dataGridViewCellStyle10;
-			this.ProDGV.RowTemplate.Height = 40;
-			this.ProDGV.RowTemplate.ReadOnly = true;
-			this.ProDGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ProDGV.Size = new System.Drawing.Size(1178, 264);
-			this.ProDGV.TabIndex = 4;
-			this.ProDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProDGV_CellClick);
 			// 
 			// tlpProFields
 			// 
@@ -427,34 +364,6 @@
 			this.pnlGanttContainer.Size = new System.Drawing.Size(574, 235);
 			this.pnlGanttContainer.TabIndex = 19;
 			// 
-			// lblAVGTA
-			// 
-			this.lblAVGTA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.lblAVGTA.AutoSize = true;
-			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 16F);
-			this.lblAVGTA.ForeColor = System.Drawing.Color.White;
-			this.lblAVGTA.Location = new System.Drawing.Point(332, 17);
-			this.lblAVGTA.Name = "lblAVGTA";
-			this.lblAVGTA.Size = new System.Drawing.Size(278, 29);
-			this.lblAVGTA.TabIndex = 19;
-			this.lblAVGTA.Text = "Turnarround Time AVG = ";
-			this.lblAVGTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.lblAVGTA.Visible = false;
-			// 
-			// lblAVGWait
-			// 
-			this.lblAVGWait.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.lblAVGWait.AutoSize = true;
-			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 16F);
-			this.lblAVGWait.ForeColor = System.Drawing.Color.White;
-			this.lblAVGWait.Location = new System.Drawing.Point(10, 17);
-			this.lblAVGWait.Name = "lblAVGWait";
-			this.lblAVGWait.Size = new System.Drawing.Size(197, 29);
-			this.lblAVGWait.TabIndex = 19;
-			this.lblAVGWait.Text = "Wait Time AVG = ";
-			this.lblAVGWait.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.lblAVGWait.Visible = false;
-			// 
 			// DGV
 			// 
 			this.DGV.AllowUserToAddRows = false;
@@ -541,59 +450,68 @@
 			this.dataGridViewTextBoxColumn1.Visible = false;
 			this.dataGridViewTextBoxColumn1.Width = 5;
 			// 
-			// panel1
+			// ProDGV
 			// 
-			this.panel1.Controls.Add(this.lblAVGWait);
-			this.panel1.Controls.Add(this.lblAVGTA);
-			this.panel1.Controls.Add(this.BtnReset);
-			this.panel1.Controls.Add(this.BtnStartScheduling);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(3, 606);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1178, 61);
-			this.panel1.TabIndex = 2;
-			// 
-			// BtnReset
-			// 
-			this.BtnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.BtnReset.BackColor = System.Drawing.Color.Transparent;
-			this.BtnReset.FlatAppearance.BorderSize = 0;
-			this.BtnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
-			this.BtnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.BtnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.BtnReset.Font = new System.Drawing.Font("Cantarell", 16F);
-			this.BtnReset.ForeColor = System.Drawing.Color.White;
-			this.BtnReset.Image = global::OSAlgorithmsSimulator.Properties.Resources.Reload_WF;
-			this.BtnReset.Location = new System.Drawing.Point(1038, 2);
-			this.BtnReset.Margin = new System.Windows.Forms.Padding(5);
-			this.BtnReset.Name = "BtnReset";
-			this.BtnReset.Size = new System.Drawing.Size(134, 58);
-			this.BtnReset.TabIndex = 20;
-			this.BtnReset.Text = "Reset";
-			this.BtnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.BtnReset.UseVisualStyleBackColor = false;
-			this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
-			// 
-			// BtnStartScheduling
-			// 
-			this.BtnStartScheduling.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.BtnStartScheduling.BackColor = System.Drawing.Color.Transparent;
-			this.BtnStartScheduling.FlatAppearance.BorderSize = 0;
-			this.BtnStartScheduling.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
-			this.BtnStartScheduling.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-			this.BtnStartScheduling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.BtnStartScheduling.Font = new System.Drawing.Font("Cantarell", 16F);
-			this.BtnStartScheduling.ForeColor = System.Drawing.Color.White;
-			this.BtnStartScheduling.Image = global::OSAlgorithmsSimulator.Properties.Resources.Start;
-			this.BtnStartScheduling.Location = new System.Drawing.Point(785, 2);
-			this.BtnStartScheduling.Margin = new System.Windows.Forms.Padding(5);
-			this.BtnStartScheduling.Name = "BtnStartScheduling";
-			this.BtnStartScheduling.Size = new System.Drawing.Size(243, 58);
-			this.BtnStartScheduling.TabIndex = 20;
-			this.BtnStartScheduling.Text = "Start Scheduling";
-			this.BtnStartScheduling.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.BtnStartScheduling.UseVisualStyleBackColor = false;
-			this.BtnStartScheduling.Click += new System.EventHandler(this.BtnStartScheduling_Click);
+			this.ProDGV.AllowUserToAddRows = false;
+			this.ProDGV.AllowUserToDeleteRows = false;
+			this.ProDGV.AllowUserToResizeRows = false;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.ProDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+			this.ProDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+			this.ProDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+			this.ProDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ProDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Cantarell", 20F);
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.ProDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			this.ProDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.ProDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PId,
+            this.PName,
+            this.PArrivalTime,
+            this.PBurstTime,
+            this.PPriority,
+            this.PStartTime,
+            this.PFinishTime,
+            this.PWaitTime,
+            this.PTurnAroundTime,
+            this.PIsWorking,
+            this.PRemainingTime});
+			this.ProDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ProDGV.EnableHeadersVisualStyles = false;
+			this.ProDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
+			this.ProDGV.Location = new System.Drawing.Point(3, 337);
+			this.ProDGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.ProDGV.MultiSelect = false;
+			this.ProDGV.Name = "ProDGV";
+			this.ProDGV.ReadOnly = true;
+			this.ProDGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Cantarell", 20F);
+			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.ProDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			this.ProDGV.RowHeadersVisible = false;
+			this.ProDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+			dataGridViewCellStyle10.Font = new System.Drawing.Font("Cantarell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(2);
+			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+			this.ProDGV.RowsDefaultCellStyle = dataGridViewCellStyle10;
+			this.ProDGV.RowTemplate.Height = 40;
+			this.ProDGV.RowTemplate.ReadOnly = true;
+			this.ProDGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ProDGV.Size = new System.Drawing.Size(1178, 264);
+			this.ProDGV.TabIndex = 4;
+			this.ProDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProDGV_CellClick);
 			// 
 			// PId
 			// 
@@ -691,6 +609,88 @@
 			this.PRemainingTime.Visible = false;
 			this.PRemainingTime.Width = 250;
 			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.lblAVGWait);
+			this.panel1.Controls.Add(this.lblAVGTA);
+			this.panel1.Controls.Add(this.BtnReset);
+			this.panel1.Controls.Add(this.BtnStartScheduling);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(3, 606);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(1178, 61);
+			this.panel1.TabIndex = 2;
+			// 
+			// lblAVGWait
+			// 
+			this.lblAVGWait.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblAVGWait.AutoSize = true;
+			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.lblAVGWait.ForeColor = System.Drawing.Color.White;
+			this.lblAVGWait.Location = new System.Drawing.Point(10, 17);
+			this.lblAVGWait.Name = "lblAVGWait";
+			this.lblAVGWait.Size = new System.Drawing.Size(197, 29);
+			this.lblAVGWait.TabIndex = 19;
+			this.lblAVGWait.Text = "Wait Time AVG = ";
+			this.lblAVGWait.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblAVGWait.Visible = false;
+			// 
+			// lblAVGTA
+			// 
+			this.lblAVGTA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblAVGTA.AutoSize = true;
+			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.lblAVGTA.ForeColor = System.Drawing.Color.White;
+			this.lblAVGTA.Location = new System.Drawing.Point(332, 17);
+			this.lblAVGTA.Name = "lblAVGTA";
+			this.lblAVGTA.Size = new System.Drawing.Size(278, 29);
+			this.lblAVGTA.TabIndex = 19;
+			this.lblAVGTA.Text = "Turnarround Time AVG = ";
+			this.lblAVGTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblAVGTA.Visible = false;
+			// 
+			// BtnReset
+			// 
+			this.BtnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.BtnReset.BackColor = System.Drawing.Color.Transparent;
+			this.BtnReset.FlatAppearance.BorderSize = 0;
+			this.BtnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
+			this.BtnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.BtnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.BtnReset.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.BtnReset.ForeColor = System.Drawing.Color.White;
+			this.BtnReset.Image = global::OSAlgorithmsSimulator.Properties.Resources.Reload_WF;
+			this.BtnReset.Location = new System.Drawing.Point(1038, 2);
+			this.BtnReset.Margin = new System.Windows.Forms.Padding(5);
+			this.BtnReset.Name = "BtnReset";
+			this.BtnReset.Size = new System.Drawing.Size(134, 58);
+			this.BtnReset.TabIndex = 20;
+			this.BtnReset.Text = "Reset";
+			this.BtnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.BtnReset.UseVisualStyleBackColor = false;
+			this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+			// 
+			// BtnStartScheduling
+			// 
+			this.BtnStartScheduling.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.BtnStartScheduling.BackColor = System.Drawing.Color.Transparent;
+			this.BtnStartScheduling.FlatAppearance.BorderSize = 0;
+			this.BtnStartScheduling.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
+			this.BtnStartScheduling.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+			this.BtnStartScheduling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.BtnStartScheduling.Font = new System.Drawing.Font("Cantarell", 16F);
+			this.BtnStartScheduling.ForeColor = System.Drawing.Color.White;
+			this.BtnStartScheduling.Image = global::OSAlgorithmsSimulator.Properties.Resources.Start;
+			this.BtnStartScheduling.Location = new System.Drawing.Point(785, 2);
+			this.BtnStartScheduling.Margin = new System.Windows.Forms.Padding(5);
+			this.BtnStartScheduling.Name = "BtnStartScheduling";
+			this.BtnStartScheduling.Size = new System.Drawing.Size(243, 58);
+			this.BtnStartScheduling.TabIndex = 20;
+			this.BtnStartScheduling.Text = "Start Scheduling";
+			this.BtnStartScheduling.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.BtnStartScheduling.UseVisualStyleBackColor = false;
+			this.BtnStartScheduling.Click += new System.EventHandler(this.BtnStartScheduling_Click);
+			// 
 			// CPU_FCFS_UC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -703,7 +703,6 @@
 			this.tlpMain.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
 			this.tlpProDataMain.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.ProDGV)).EndInit();
 			this.tlpProFields.ResumeLayout(false);
 			this.tlpProFields.PerformLayout();
 			this.tlpProButtons.ResumeLayout(false);
@@ -712,6 +711,7 @@
 			this.GbGanttChart.ResumeLayout(false);
 			this.pnlGanttContainer.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ProDGV)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);

@@ -3,6 +3,7 @@ using OSAlgorithmsSimulator.User_Controls.Virtual_Memory;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace OSAlgorithmsSimulator
 {
 	public partial class MainDashboard : Form
