@@ -82,23 +82,23 @@ namespace OSAlgorithmsSimulator
 
 				ArrivedProcess = ArrivedProcess.OrderBy(a => a.BurstTime).ToList();
 
-				foreach (var p in ArrivedProcess)
-				{
-					p.StartTime = currentTime;
+				var p = ArrivedProcess.FirstOrDefault();
 
-					currentTime += p.BurstTime;
+				p.StartTime = currentTime;
 
-					p.FinishTime = currentTime;
+				currentTime += p.BurstTime;
 
-					p.RemainingTime = 0;
+				p.FinishTime = currentTime;
 
-					p.WaitTime = p.StartTime - p.ArrivalTime;
+				p.RemainingTime = 0;
 
-					p.TurnAroundTime = p.FinishTime - p.ArrivalTime;
+				p.WaitTime = p.StartTime - p.ArrivalTime;
 
-					Processes.Remove(Processes.FirstOrDefault(a => a.Id.Equals(p.Id)));
-					TerminatedProcesses.Add(p);
-				}
+				p.TurnAroundTime = p.FinishTime - p.ArrivalTime;
+
+				Processes.Remove(Processes.FirstOrDefault(a => a.Id.Equals(p.Id)));
+				TerminatedProcesses.Add(p);
+
 			}
 			CalculatedSuccessfully = true;
 		}
