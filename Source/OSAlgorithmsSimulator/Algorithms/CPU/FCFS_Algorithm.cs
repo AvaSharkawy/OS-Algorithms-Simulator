@@ -67,6 +67,21 @@ namespace OSAlgorithmsSimulator
 
 			while(Processes.Count > 0)
 			{
+				if(Processes[0].ArrivalTime > currentTime)
+				{
+					var process = new OSASProcess();
+
+					process.Id = -1;
+					process.StartTime = currentTime;
+					process.BurstTime += Processes[0].ArrivalTime - currentTime;
+					process.FinishTime = process.StartTime + process.BurstTime;
+					process.RemainingTime = 0;
+					currentTime = process.FinishTime;
+
+					TerminatedProcesses.Add(process);
+					continue;
+				}
+
 				Processes[0].StartTime = Math.Max(currentTime, Processes[0].ArrivalTime);
 
 				Processes[0].IsWorking = true;
@@ -76,6 +91,8 @@ namespace OSAlgorithmsSimulator
 				currentTime += Processes[0].BurstTime;
 
 				Processes[0].FinishTime = currentTime;
+
+				Processes[0].RemainingTime = 0;
 
 				Processes[0].IsWorking = false;
 
