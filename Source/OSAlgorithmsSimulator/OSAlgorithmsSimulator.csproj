@@ -74,16 +74,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\CPU\Base\CPUAlgorithmBase.cs" />
-    <Compile Include="Algorithms\CPU\FCFS_Algorithm.cs" />
-    <Compile Include="Algorithms\CPU\Priority_Algorithm.cs" />
-    <Compile Include="Algorithms\CPU\RoundRobin_Algorithm.cs" />
-    <Compile Include="Algorithms\CPU\SJF_Algorithm.cs" />
+    <Compile Include="Algorithms\CPU\Base\CPU_Algorithm_Base.cs" />
+    <Compile Include="Algorithms\CPU\CPU_FCFS_Algorithm.cs" />
+    <Compile Include="Algorithms\CPU\CPU_Priority_Algorithm.cs" />
+    <Compile Include="Algorithms\CPU\CPU_RoundRobin_Algorithm.cs" />
+    <Compile Include="Algorithms\CPU\CPU_SJF_Algorithm.cs" />
+    <Compile Include="Algorithms\Virtual Memory\Base\VM_Algorithm_Base.cs" />
+    <Compile Include="Algorithms\Virtual Memory\VM_PageReplacment.cs" />
     <Compile Include="Data Models\CPU\Base\OSASProcessBase.cs" />
     <Compile Include="Data Models\CPU\OSASProcess.cs" />
+    <Compile Include="Data Models\Virtual Memory\OSASVMObject.cs" />
+    <Compile Include="Data Models\Virtual Memory\VMAlgorithmType.cs" />
     <Compile Include="Dialogs\ACMessageBox.cs" />
     <Compile Include="Extensions\AC_Extensions.cs" />
     <Compile Include="Extensions\OSASProcessExtensions.cs" />
+    <Compile Include="Extensions\OSASVMObjectExtensions.cs" />
+    <Compile Include="Extensions\VMPageReplacmentExtensions.cs" />
     <Compile Include="MainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,5 +245,6 @@
   <ItemGroup>
     <None Include="Resources\Start.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

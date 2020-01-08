@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Syncfusion.Windows.Forms.Tools;
+using System.Diagnostics;
 
 namespace OSAlgorithmsSimulator.User_Controls.CPU
 {
@@ -107,8 +108,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 			ProDGV.Columns["PFinishTime"].Visible = showColumns;
 			ProDGV.Columns["PWaitTime"].Visible = showColumns;
 			ProDGV.Columns["PTurnAroundTime"].Visible = showColumns;
-			lblAVGTA.Visible = showColumns;
-			lblAVGWait.Visible = showColumns;
+			lblAVGTA.Visible = lblAVGWait.Visible = lblTime.Visible = showColumns;
 
 			ProDGV.Columns["PName"].DisplayIndex = 0;
 			ProDGV.Columns["PArrivalTime"].DisplayIndex = 1;
@@ -204,11 +204,15 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				return;
 			}
 
-			var fcfs = new SJF_Algorithm(Processes, TglPreemptive.ToggleState == ToggleButtonState.Active ? true : false);
+			var sjf = new CPU_SJF_Algorithm(Processes, TglPreemptive.ToggleState == ToggleButtonState.Active ? true : false);
 
-			fcfs.CalculateProcesses();
+			var watch = Stopwatch.StartNew();
 
-			TerminatedProcess = fcfs.TerminatedProcesses;
+			sjf.CalculateProcesses();
+
+			watch.Stop();
+
+			TerminatedProcess = sjf.TerminatedProcesses;
 			//TerminatedProcess.DrawGanttChart(DGV, this, GbGanttChart.Location.Y + pnlGanttContainer.Location.Y);
 			var gantt = new GanttChart_UC(TerminatedProcess);
 			gantt.DrawGanttChart();
@@ -220,6 +224,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 			
 			lblAVGWait.Text = $"Wait Time AVG = {(TerminatedProcess.Sum(a => a.WaitTime) / (float)count).ToString("0.00")}";
 			lblAVGTA.Text = $"Turn-around Time AVG = {(TerminatedProcess.Sum(a => a.TurnAroundTime) / (float)count).ToString("0.00")}";
+			lblTime.Text = $"Estimated Time= {watch.ElapsedMilliseconds}ms";
 
 			RefreshDGV(TerminatedProcess, true);
 			tlpProFields.Enabled = false;

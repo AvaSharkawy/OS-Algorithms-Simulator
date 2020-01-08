@@ -71,11 +71,12 @@
 			this.PRemainingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.numTimeUnit = new System.Windows.Forms.NumericUpDown();
-			this.lblAVGWait = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.lblAVGTA = new System.Windows.Forms.Label();
 			this.BtnReset = new System.Windows.Forms.Button();
 			this.BtnStartScheduling = new System.Windows.Forms.Button();
+			this.lblTime = new System.Windows.Forms.Label();
+			this.lblAVGWait = new System.Windows.Forms.Label();
+			this.lblAVGTA = new System.Windows.Forms.Label();
 			this.tlpMain.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.tlpProDataMain.SuspendLayout();
@@ -615,10 +616,11 @@
 			// 
 			// panel1
 			// 
-			this.panel1.Controls.Add(this.numTimeUnit);
+			this.panel1.Controls.Add(this.lblTime);
 			this.panel1.Controls.Add(this.lblAVGWait);
-			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.lblAVGTA);
+			this.panel1.Controls.Add(this.numTimeUnit);
+			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.BtnReset);
 			this.panel1.Controls.Add(this.BtnStartScheduling);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -645,20 +647,6 @@
 			this.numTimeUnit.TabIndex = 21;
 			this.numTimeUnit.Enter += new System.EventHandler(this.numArrivalTime_Enter);
 			// 
-			// lblAVGWait
-			// 
-			this.lblAVGWait.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.lblAVGWait.AutoSize = true;
-			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 14F);
-			this.lblAVGWait.ForeColor = System.Drawing.Color.White;
-			this.lblAVGWait.Location = new System.Drawing.Point(4, 19);
-			this.lblAVGWait.Name = "lblAVGWait";
-			this.lblAVGWait.Size = new System.Drawing.Size(170, 25);
-			this.lblAVGWait.TabIndex = 19;
-			this.lblAVGWait.Text = "Wait Time AVG = ";
-			this.lblAVGWait.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.lblAVGWait.Visible = false;
-			// 
 			// label5
 			// 
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -671,20 +659,6 @@
 			this.label5.TabIndex = 19;
 			this.label5.Text = "Time Unit";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// lblAVGTA
-			// 
-			this.lblAVGTA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.lblAVGTA.AutoSize = true;
-			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 14F);
-			this.lblAVGTA.ForeColor = System.Drawing.Color.White;
-			this.lblAVGTA.Location = new System.Drawing.Point(234, 19);
-			this.lblAVGTA.Name = "lblAVGTA";
-			this.lblAVGTA.Size = new System.Drawing.Size(236, 25);
-			this.lblAVGTA.TabIndex = 19;
-			this.lblAVGTA.Text = "Turnarround Time AVG = ";
-			this.lblAVGTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.lblAVGTA.Visible = false;
 			// 
 			// BtnReset
 			// 
@@ -727,6 +701,48 @@
 			this.BtnStartScheduling.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.BtnStartScheduling.UseVisualStyleBackColor = false;
 			this.BtnStartScheduling.Click += new System.EventHandler(this.BtnStartScheduling_Click);
+			// 
+			// lblTime
+			// 
+			this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblTime.AutoSize = true;
+			this.lblTime.Font = new System.Drawing.Font("Cantarell", 14F);
+			this.lblTime.ForeColor = System.Drawing.Color.White;
+			this.lblTime.Location = new System.Drawing.Point(-2, 39);
+			this.lblTime.Name = "lblTime";
+			this.lblTime.Size = new System.Drawing.Size(246, 25);
+			this.lblTime.TabIndex = 24;
+			this.lblTime.Text = "Estimated Time = {time}ms";
+			this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblTime.Visible = false;
+			// 
+			// lblAVGWait
+			// 
+			this.lblAVGWait.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblAVGWait.AutoSize = true;
+			this.lblAVGWait.Font = new System.Drawing.Font("Cantarell", 14F);
+			this.lblAVGWait.ForeColor = System.Drawing.Color.White;
+			this.lblAVGWait.Location = new System.Drawing.Point(-2, 6);
+			this.lblAVGWait.Name = "lblAVGWait";
+			this.lblAVGWait.Size = new System.Drawing.Size(170, 25);
+			this.lblAVGWait.TabIndex = 22;
+			this.lblAVGWait.Text = "Wait Time AVG = ";
+			this.lblAVGWait.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblAVGWait.Visible = false;
+			// 
+			// lblAVGTA
+			// 
+			this.lblAVGTA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblAVGTA.AutoSize = true;
+			this.lblAVGTA.Font = new System.Drawing.Font("Cantarell", 14F);
+			this.lblAVGTA.ForeColor = System.Drawing.Color.White;
+			this.lblAVGTA.Location = new System.Drawing.Point(256, 6);
+			this.lblAVGTA.Name = "lblAVGTA";
+			this.lblAVGTA.Size = new System.Drawing.Size(236, 25);
+			this.lblAVGTA.TabIndex = 23;
+			this.lblAVGTA.Text = "Turnarround Time AVG = ";
+			this.lblAVGTA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblAVGTA.Visible = false;
 			// 
 			// CPU_RoundRobin_UC
 			// 
@@ -790,10 +806,11 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn PRemainingTime;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.NumericUpDown numTimeUnit;
-		private System.Windows.Forms.Label lblAVGWait;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label lblAVGTA;
 		private System.Windows.Forms.Button BtnReset;
 		private System.Windows.Forms.Button BtnStartScheduling;
+		private System.Windows.Forms.Label lblTime;
+		private System.Windows.Forms.Label lblAVGWait;
+		private System.Windows.Forms.Label lblAVGTA;
 	}
 }
