@@ -99,6 +99,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 		{
 			ProDGV.DataSource = processes.Where(a => a.Id > -1).AC_AsDataTable();
 			VisualiseProDGV(showColumns);
+			DGV.ClearSelection();
 		}
 
 		void VisualiseProDGV(bool showColumns)
@@ -193,6 +194,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			Processes.Remove(SelectedProcess);
 			SelectedProcess = null;
+			tlpProFields.AC_ClearFields();
 			RefreshDGV(Processes);
 		}
 
@@ -200,6 +202,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 		{
 			SelectedProcess = null;
 			tlpProFields.AC_ClearFields();
+			DGV.ClearSelection();
 		}
 
 		private void BtnStartScheduling_Click(object sender, EventArgs e)
