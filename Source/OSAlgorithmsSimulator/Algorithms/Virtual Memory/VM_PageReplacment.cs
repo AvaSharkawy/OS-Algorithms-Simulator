@@ -114,7 +114,7 @@ namespace OSAlgorithmsSimulator
 			{
 				var lastFObjects = objects.Where(a => a.Index < current && !a.Hit).ToList();
 
-				var objToRemoveValue = lastFObjects[(lastFObjects.Count) - FramesCount].InputObject;
+				var objToRemoveValue = lastFObjects[lastFObjects.Count - FramesCount].InputObject;
 
 				return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(objToRemoveValue));
 			}
@@ -151,7 +151,6 @@ namespace OSAlgorithmsSimulator
 				var objToRemoveValuee = grouped.LastOrDefault().Key;
 
 				return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(objToRemoveValuee));
-
 			}
 			else if(type == VMAlgorithmType.MFU)
 			{

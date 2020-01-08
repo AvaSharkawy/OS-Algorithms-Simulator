@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -66,6 +67,16 @@ namespace OSAlgorithmsSimulator
 				}
 			});
 
+		}
+	
+		public static BindingList<ChartProcess> AsBindingList(this List<OSASProcess> list)
+		{
+			var retlist = new BindingList<ChartProcess>();
+
+			foreach (var p in list)
+				retlist.Add(new ChartProcess("1999", p.FinishTime-p.StartTime, p.Name));
+
+			return retlist;
 		}
 	}
 }

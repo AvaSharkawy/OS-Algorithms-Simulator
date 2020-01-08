@@ -213,12 +213,8 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 			watch.Stop();
 
 			TerminatedProcess = sjf.TerminatedProcesses;
-			//TerminatedProcess.DrawGanttChart(DGV, this, GbGanttChart.Location.Y + pnlGanttContainer.Location.Y);
-			var gantt = new GanttChart_UC(TerminatedProcess);
-			gantt.DrawGanttChart();
-			GbGanttChart.Controls.Add(gantt);
-			gantt.Dock = DockStyle.Top;
-			gantt.Height = 100;
+
+			pnlGanttContainer.Controls.Add(new ChartExt(TerminatedProcess));
 
 			var count = TerminatedProcess.GroupBy(a => a.Id).Select(a => a.FirstOrDefault()).ToList().Count;
 			
@@ -240,6 +236,8 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			SelectedProcess = null;
 			tlpProFields.AC_ClearFields();
+
+			pnlGanttContainer.Controls.Clear();
 
 			DGV.Columns.Clear();
 			this.CreateGraphics().FillRectangle(new SolidBrush(Color.FromArgb(28, 30, 35)), new RectangleF(new PointF(0, 0), this.Size));
