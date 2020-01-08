@@ -9,7 +9,7 @@ namespace OSAlgorithmsSimulator
 	/// <summary>
 	/// A class to represent CPU Shortest Job First algorithm
 	/// </summary>
-	public class SJF_Algorithm : CPUAlgorithmBase
+	public class CPU_SJF_Algorithm : CPU_Algorithm_Base
 	{
 		#region Public Properties
 
@@ -22,7 +22,7 @@ namespace OSAlgorithmsSimulator
 		/// <summary>
 		/// Default constructor
 		/// </summary>
-		public SJF_Algorithm()
+		public CPU_SJF_Algorithm()
 		{
 			Processes = new List<OSASProcess>();
 			TerminatedProcesses = new List<OSASProcess>();
@@ -34,7 +34,7 @@ namespace OSAlgorithmsSimulator
 		/// </summary>
 		/// <param name="processes">The processes to calculate</param>
 		/// <param name="preemitive">Indicates if we should use preemptive algorithm</param>
-		public SJF_Algorithm(List<OSASProcess> processes, bool preemptive)
+		public CPU_SJF_Algorithm(List<OSASProcess> processes, bool preemptive)
 		{
 			Processes = processes;
 			TerminatedProcesses = new List<OSASProcess>();

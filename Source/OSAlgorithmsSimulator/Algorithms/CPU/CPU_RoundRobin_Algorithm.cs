@@ -9,7 +9,7 @@ namespace OSAlgorithmsSimulator
 	/// <summary>
 	/// A class to represent CPU Round Robin Algorithm
 	/// </summary>
-	public class RoundRobin_Algorithm : CPUAlgorithmBase
+	public class CPU_RoundRobin_Algorithm : CPU_Algorithm_Base
 	{
 		#region Public Properties
 
@@ -25,14 +25,14 @@ namespace OSAlgorithmsSimulator
 		/// <summary>
 		/// Default Constructor
 		/// </summary>
-		public RoundRobin_Algorithm()
+		public CPU_RoundRobin_Algorithm()
 		{
 			Processes = new List<OSASProcess>();
 			TerminatedProcesses = new List<OSASProcess>();
 			TimeUnit = 0;
 		}
 
-		public RoundRobin_Algorithm(List<OSASProcess> processes, int timeUnit)
+		public CPU_RoundRobin_Algorithm(List<OSASProcess> processes, int timeUnit)
 		{
 			Processes = processes;
 			TerminatedProcesses = new List<OSASProcess>();
@@ -52,7 +52,7 @@ namespace OSAlgorithmsSimulator
 			if(TimeUnit <= 0)
 			{
 				// Use FSFC(First Come First Served) Algorithm
-				var Fcfs = new FCFS_Algorithm(Processes);
+				var Fcfs = new CPU_FCFS_Algorithm(Processes);
 
 				Fcfs.CalculateProcesses();
 

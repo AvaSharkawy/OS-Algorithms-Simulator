@@ -9,14 +9,14 @@ namespace OSAlgorithmsSimulator
 	/// <summary>
 	/// A class to calculate process using FCFS algorithm
 	/// </summary>
-	public class FCFS_Algorithm : CPUAlgorithmBase
+	public class CPU_FCFS_Algorithm : CPU_Algorithm_Base
 	{
 		#region Constructor
 
 		/// <summary>
 		/// Default constructor
 		/// </summary>
-		public FCFS_Algorithm()
+		public CPU_FCFS_Algorithm()
 		{
 			Processes = new List<OSASProcess>();
 			TerminatedProcesses = new List<OSASProcess>();
@@ -26,7 +26,7 @@ namespace OSAlgorithmsSimulator
 		/// Parameterized constructor with list of <see cref="OSASProcess"/>
 		/// </summary>
 		/// <param name="processes">The processes to calculate</param>
-		public FCFS_Algorithm(List<OSASProcess> processes)
+		public CPU_FCFS_Algorithm(List<OSASProcess> processes)
 		{
 			Processes = processes;
 			TerminatedProcesses = new List<OSASProcess>();

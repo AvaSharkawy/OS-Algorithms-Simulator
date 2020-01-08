@@ -9,7 +9,7 @@ namespace OSAlgorithmsSimulator
 	/// <summary>
 	/// A class to represent CPU Priority algorithm
 	/// </summary>
-	public class Priority_Algorithm : CPUAlgorithmBase
+	public class CPU_Priority_Algorithm : CPU_Algorithm_Base
 	{
 		#region Public Properties
 
@@ -26,7 +26,7 @@ namespace OSAlgorithmsSimulator
 		/// <summary>
 		/// Default constructor
 		/// </summary>
-		public Priority_Algorithm()
+		public CPU_Priority_Algorithm()
 		{
 			Processes = new List<OSASProcess>();
 			TerminatedProcesses = new List<OSASProcess>();
@@ -39,7 +39,7 @@ namespace OSAlgorithmsSimulator
 		/// <param name="processes">The processes to calculate</param>
 		/// <param name="ascending">Indicates if we should treat priority numbers from lower 
 		/// to higher or opposite</param>
-		public Priority_Algorithm(List<OSASProcess> processes, bool ascending)
+		public CPU_Priority_Algorithm(List<OSASProcess> processes, bool ascending)
 		{
 			Processes = processes;
 			TerminatedProcesses = new List<OSASProcess>();

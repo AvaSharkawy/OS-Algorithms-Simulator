@@ -9,7 +9,7 @@ namespace OSAlgorithmsSimulator
 	/// <summary>
 	/// A class to represent any CPU Algorithm
 	/// </summary>
-	public class CPUAlgorithmBase
+	public class CPU_Algorithm_Base
 	{
 		#region Public Properties
 
