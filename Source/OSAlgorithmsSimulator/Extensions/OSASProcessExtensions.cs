@@ -74,7 +74,7 @@ namespace OSAlgorithmsSimulator
 			var retlist = new BindingList<ChartProcess>();
 
 			foreach (var p in list)
-				retlist.Add(new ChartProcess("1999", p.FinishTime-p.StartTime, p.Name));
+				retlist.Add(new ChartProcess("YCat", p.FinishTime-p.StartTime, p.Name));
 
 			return retlist;
 		}

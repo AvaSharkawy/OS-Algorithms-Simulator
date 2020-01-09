@@ -116,14 +116,14 @@ namespace OSAlgorithmsSimulator
 
 			CategoryModel = dataSeriesModel;
 
-			this.Dock = System.Windows.Forms.DockStyle.Top;
+			this.Location = new Point(0, 0);
+			this.Height = 150;
+			//this.Dock = System.Windows.Forms.DockStyle.Top;
 			this.BorderAppearance.Interior.ForeColor = Color.Red;
 			this.BorderAppearance.BaseColor = Color.Transparent;
-			this.Size = new System.Drawing.Size(575, 150);
+			//this.Size = new System.Drawing.Size(575, 150);
 			this.ChartArea.BorderStyle = BorderStyle.None;
-			this.ChartArea.BorderColor = Color.Red;
-			this.ChartArea.BorderWidth = 3;
-			this.ClientSize = new System.Drawing.Size(575, 150);
+			//this.ClientSize = new System.Drawing.Size(575, 150);
 			this.ChartInterior = new BrushInfo(Color.FromArgb(28, 30, 35));
 		}
 
@@ -140,7 +140,7 @@ namespace OSAlgorithmsSimulator
             stackingBarSeries.Style.Text = newValue.SeriesLabel;
 			stackingBarSeries.Style.TextColor = Color.White;
 			stackingBarSeries.Style.Border.Color = Color.White;
-
+			this.Width += 30;
 			Series.Add(stackingBarSeries);
         }
     }

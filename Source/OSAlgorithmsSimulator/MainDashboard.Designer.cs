@@ -60,12 +60,12 @@
 			// tabControlAdv1
 			// 
 			this.tabControlAdv1.BeforeTouchSize = new System.Drawing.Size(1344, 747);
-			this.tabControlAdv1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.tabControlAdv1.BorderWidth = 0;
+			this.tabControlAdv1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.tabControlAdv1.BorderWidth = 1;
 			this.tabControlAdv1.Controls.Add(this.TabCPU);
 			this.tabControlAdv1.Controls.Add(this.TabVM);
 			this.tabControlAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControlAdv1.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+			this.tabControlAdv1.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
 			this.tabControlAdv1.ImageAlignmentR = Syncfusion.Windows.Forms.Tools.RelativeImageAlignment.AboveText;
 			this.tabControlAdv1.InactiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
 			this.tabControlAdv1.Location = new System.Drawing.Point(0, 0);
@@ -82,10 +82,10 @@
 			this.TabCPU.Controls.Add(this.CpuSidePanel);
 			this.TabCPU.Image = global::OSAlgorithmsSimulator.Properties.Resources.CPU_1_WF;
 			this.TabCPU.ImageSize = new System.Drawing.Size(32, 32);
-			this.TabCPU.Location = new System.Drawing.Point(0, 77);
+			this.TabCPU.Location = new System.Drawing.Point(1, 78);
 			this.TabCPU.Name = "TabCPU";
 			this.TabCPU.ShowCloseButton = true;
-			this.TabCPU.Size = new System.Drawing.Size(1344, 670);
+			this.TabCPU.Size = new System.Drawing.Size(1342, 668);
 			this.TabCPU.TabFont = new System.Drawing.Font("Cantarell", 18.25F);
 			this.TabCPU.TabForeColor = System.Drawing.Color.White;
 			this.TabCPU.TabIndex = 1;
@@ -97,7 +97,7 @@
 			this.pnlCpuUCs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlCpuUCs.Location = new System.Drawing.Point(160, 0);
 			this.pnlCpuUCs.Name = "pnlCpuUCs";
-			this.pnlCpuUCs.Size = new System.Drawing.Size(1184, 670);
+			this.pnlCpuUCs.Size = new System.Drawing.Size(1182, 668);
 			this.pnlCpuUCs.TabIndex = 25;
 			// 
 			// CpuSidePanel
@@ -112,7 +112,7 @@
 			this.CpuSidePanel.Dock = System.Windows.Forms.DockStyle.Left;
 			this.CpuSidePanel.Location = new System.Drawing.Point(0, 0);
 			this.CpuSidePanel.Name = "CpuSidePanel";
-			this.CpuSidePanel.Size = new System.Drawing.Size(160, 670);
+			this.CpuSidePanel.Size = new System.Drawing.Size(160, 668);
 			this.CpuSidePanel.TabIndex = 24;
 			// 
 			// PnlCPUButtonHead
