@@ -31,8 +31,8 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 
 			lru.FillDGV(DGV);
 
-			var hits = $"{lru.Hits}/{lru.CleanInputStringLength}";
-			var faults = $"{lru.Faults}/{lru.CleanInputStringLength}";
+			var hits = $"{lru.Hits}/{lru.InputString.Length}";
+			var faults = $"{lru.Faults}/{lru.InputString.Length}";
 
 			lblHits.Text = $"Page Hits = {hits}";
 			lblFaults.Text = $"Page Faults = {faults}";

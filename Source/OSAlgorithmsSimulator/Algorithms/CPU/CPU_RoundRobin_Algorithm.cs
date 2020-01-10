@@ -41,9 +41,9 @@ namespace OSAlgorithmsSimulator
 
 		#endregion
 
-		#region Algorithm Calculate Methods
+		#region Algorithm Simulate Methods
 
-		public void CalculateProcesses()
+		public void SimulateProcesses()
 		{
 			if (Processes.Count <= 0)
 				return;
@@ -54,7 +54,7 @@ namespace OSAlgorithmsSimulator
 				// Use FSFC(First Come First Served) Algorithm
 				var Fcfs = new CPU_FCFS_Algorithm(Processes);
 
-				Fcfs.CalculateProcesses();
+				Fcfs.SimulateProcesses();
 
 				TerminatedProcesses = Fcfs.TerminatedProcesses;
 

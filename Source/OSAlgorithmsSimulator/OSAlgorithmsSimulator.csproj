@@ -96,6 +96,7 @@
     <Compile Include="Data Models\ChartProcess.cs" />
     <Compile Include="Data Models\CPU\Base\OSASProcessBase.cs" />
     <Compile Include="Data Models\CPU\OSASProcess.cs" />
+    <Compile Include="Data Models\Virtual Memory\OSASFrameObject.cs" />
     <Compile Include="Data Models\Virtual Memory\OSASVMObject.cs" />
     <Compile Include="Data Models\Virtual Memory\VMAlgorithmType.cs" />
     <Compile Include="Dialogs\ACMessageBox.cs" />

@@ -34,9 +34,9 @@ namespace OSAlgorithmsSimulator
 
 		#endregion
 
-		#region Algorithm Calculate Methods
+		#region Algorithm Simulate Methods
 
-		public void CalculateProcesses()
+		public void SimulateProcesses()
 		{
 			if (Processes.Count <= 0)
 				return;

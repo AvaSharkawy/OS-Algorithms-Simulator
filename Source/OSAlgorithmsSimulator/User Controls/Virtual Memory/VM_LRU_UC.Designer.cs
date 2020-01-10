@@ -160,7 +160,7 @@
 			this.GbInput.Size = new System.Drawing.Size(1178, 161);
 			this.GbInput.TabIndex = 2;
 			this.GbInput.TabStop = false;
-			this.GbInput.Text = "Input Details";
+			this.GbInput.Text = "LFU Input Details";
 			// 
 			// TlpInputFields
 			// 

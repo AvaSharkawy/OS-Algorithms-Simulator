@@ -31,8 +31,8 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 
 			optimal.FillDGV(DGV);
 
-			var hits = $"{optimal.Hits}/{optimal.CleanInputStringLength}";
-			var faults = $"{optimal.Faults}/{optimal.CleanInputStringLength}";
+			var hits = $"{optimal.Hits}/{optimal.InputString.Length}";
+			var faults = $"{optimal.Faults}/{optimal.InputString.Length}";
 
 			lblHits.Text = $"Page Hits = {hits}";
 			lblFaults.Text = $"Page Faults = {faults}";

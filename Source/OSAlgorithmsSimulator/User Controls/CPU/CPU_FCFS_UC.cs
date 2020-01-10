@@ -85,7 +85,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				},
 				new OSASProcess
 				{
-					Id = 4,
+					Id = 5,
 					Name = "P5",
 					ArrivalTime = 4,
 					BurstTime = 3,
@@ -93,42 +93,6 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 					Priority = 6
 				},
 			};
-
-			//var FSFC = new FCFS_Algorithm(new List<OSASProcess>
-			//{
-			//	new OSASProcess
-			//	{
-			//		Name = "P0",
-			//		ArrivalTime = 0,
-			//		BurstTime = 4
-			//	},
-			//	new OSASProcess
-			//	{
-			//		Name = "P1",
-			//		ArrivalTime = 8,
-			//		BurstTime = 3
-			//	},
-			//	new OSASProcess
-			//	{
-			//		Name = "P2",
-			//		ArrivalTime = 6,
-			//		BurstTime = 1
-			//	},
-			//	new OSASProcess
-			//	{
-			//		Name = "P3",
-			//		ArrivalTime = 10,
-			//		BurstTime = 2
-			//	},
-
-			//});
-
-			//FSFC.CalculateProcesses();
-
-			//if (FSFC.CalculatedSuccessfully)
-			//{
-			//	TerminatedProcess = FSFC.TerminatedProcesses;
-			//}
 		}
 
 		void RefreshDGV(List<OSASProcess> processes, bool showColumns = false)
@@ -157,12 +121,6 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 				ProDGV.Columns["PWaitTime"].DisplayIndex = 5;
 				ProDGV.Columns["PTurnAroundTime"].DisplayIndex = 6;
 			}
-
-		}
-
-		private void CPU_FCFS_UC_Load(object sender, EventArgs e)
-		{
-
 		}
 
 		private void ProDGV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -251,7 +209,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			var watch = Stopwatch.StartNew();
 
-			fcfs.CalculateProcesses();
+			fcfs.SimulateProcesses();
 
 			watch.Stop();
 

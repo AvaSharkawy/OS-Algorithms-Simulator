@@ -158,7 +158,7 @@
 			this.BtnCPUSJF.Name = "BtnCPUSJF";
 			this.BtnCPUSJF.Size = new System.Drawing.Size(150, 64);
 			this.BtnCPUSJF.TabIndex = 13;
-			this.BtnCPUSJF.Text = "SJF";
+			this.BtnCPUSJF.Text = "SJF and SRTF";
 			this.BtnCPUSJF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.BtnCPUSJF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.BtnCPUSJF.UseVisualStyleBackColor = false;
@@ -212,10 +212,10 @@
 			this.TabVM.Controls.Add(this.VMSidePanel);
 			this.TabVM.Image = global::OSAlgorithmsSimulator.Properties.Resources.Ram_WF;
 			this.TabVM.ImageSize = new System.Drawing.Size(32, 32);
-			this.TabVM.Location = new System.Drawing.Point(0, 77);
+			this.TabVM.Location = new System.Drawing.Point(1, 78);
 			this.TabVM.Name = "TabVM";
 			this.TabVM.ShowCloseButton = true;
-			this.TabVM.Size = new System.Drawing.Size(1344, 670);
+			this.TabVM.Size = new System.Drawing.Size(1342, 668);
 			this.TabVM.TabFont = new System.Drawing.Font("Cantarell", 18.25F);
 			this.TabVM.TabForeColor = System.Drawing.Color.White;
 			this.TabVM.TabIndex = 2;
@@ -227,7 +227,7 @@
 			this.pnlVMUcs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlVMUcs.Location = new System.Drawing.Point(160, 0);
 			this.pnlVMUcs.Name = "pnlVMUcs";
-			this.pnlVMUcs.Size = new System.Drawing.Size(1184, 670);
+			this.pnlVMUcs.Size = new System.Drawing.Size(1182, 668);
 			this.pnlVMUcs.TabIndex = 26;
 			// 
 			// VMSidePanel
@@ -243,7 +243,7 @@
 			this.VMSidePanel.Dock = System.Windows.Forms.DockStyle.Left;
 			this.VMSidePanel.Location = new System.Drawing.Point(0, 0);
 			this.VMSidePanel.Name = "VMSidePanel";
-			this.VMSidePanel.Size = new System.Drawing.Size(160, 670);
+			this.VMSidePanel.Size = new System.Drawing.Size(160, 668);
 			this.VMSidePanel.TabIndex = 25;
 			// 
 			// PnlVMButtonHead

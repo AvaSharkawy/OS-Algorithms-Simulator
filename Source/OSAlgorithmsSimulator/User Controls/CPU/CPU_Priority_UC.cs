@@ -217,7 +217,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			var watch = Stopwatch.StartNew();
 
-			priority.CalculateProcesses();
+			priority.SimulateProcesses();
 
 			watch.Stop();
 

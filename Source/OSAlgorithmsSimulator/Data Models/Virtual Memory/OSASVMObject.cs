@@ -26,7 +26,7 @@ namespace OSAlgorithmsSimulator
 		/// <summary>
 		/// List of objects inside frames
 		/// </summary>
-		public List<object> Frames { get; set; }
+		public List<OSASFrameObject> Frames { get; set; }
 
 		/// <summary>
 		/// Indicates if Hit or Fault
@@ -42,11 +42,11 @@ namespace OSAlgorithmsSimulator
 		/// </summary>
 		public OSASVMObject()
 		{
-			Frames = new List<object>();
+			Frames = new List<OSASFrameObject>();
 		}
 
 
-		public OSASVMObject(List<object> framesList)
+		public OSASVMObject(List<OSASFrameObject> framesList)
 		{
 			Frames = framesList;
 		}

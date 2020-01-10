@@ -51,11 +51,6 @@ namespace OSAlgorithmsSimulator
 		public int FramesCount { get; set; }
 
 		/// <summary>
-		/// The length of Input string after clean it
-		/// </summary>
-		public int CleanInputStringLength { get; set; }
-
-		/// <summary>
 		/// List of finished <see cref="OSASVMObject"/>s
 		/// </summary>
 		public List<OSASVMObject> OutputList { get; set; }

@@ -213,7 +213,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			var watch = Stopwatch.StartNew();
 
-			roundRobin.CalculateProcesses();
+			roundRobin.SimulateProcesses();
 
 			watch.Stop();
 

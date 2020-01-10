@@ -19,7 +19,9 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 				return;
 			}
 
-			var fifo = new VM_PageReplacment(txtInputString.Text, Convert.ToInt32(NumFramesCount.Value), VMAlgorithmType.FIFO);
+			var fifo = new VM_PageReplacment(
+				txtInputString.Text, 
+				Convert.ToInt32(NumFramesCount.Value), VMAlgorithmType.FIFO);
 
 			var watch = Stopwatch.StartNew();
 
@@ -31,8 +33,8 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 
 			fifo.FillDGV(DGV);
 
-			var hits = $"{fifo.Hits}/{fifo.CleanInputStringLength}";
-			var faults = $"{fifo.Faults}/{fifo.CleanInputStringLength}";
+			var hits = $"{fifo.Hits}/{fifo.InputString.Length}";
+			var faults = $"{fifo.Faults}/{fifo.InputString.Length}";
 
 			lblHits.Text = $"Page Hits = {hits}";
 			lblFaults.Text = $"Page Faults = {faults}";
@@ -56,7 +58,6 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 
 			GbInput.Enabled = true;
 			BtnStart.Enabled = true;
-
 		}
 	}
 }

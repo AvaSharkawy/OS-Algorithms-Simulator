@@ -43,20 +43,20 @@ namespace OSAlgorithmsSimulator
 
 		#endregion
 
-		#region Algorithm Calculate Methods
+		#region Algorithm Simulate Methods
 
-		public void CalculateProcesses()
+		public void SimulateProcesses()
 		{
 			if (Processes.Count <= 0)
 				return;
 
 			if (Preemptive)
-				CalculatePreemptive();
+				SimulatePreemptive();
 			else
-				CalculateNonPreemptive();
+				SimulateNonPreemptive();
 		}
 
-		void CalculateNonPreemptive()
+		void SimulateNonPreemptive()
 		{
 			List<OSASProcess> ArrivedProcess = new List<OSASProcess>();
 
@@ -103,7 +103,7 @@ namespace OSAlgorithmsSimulator
 			CalculatedSuccessfully = true;
 		}
 
-		void CalculatePreemptive()
+		void SimulatePreemptive()
 		{
 			List<OSASProcess> ArrivedProcess = new List<OSASProcess>();
 

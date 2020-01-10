@@ -23,7 +23,6 @@ namespace OSAlgorithmsSimulator
 		{
 			InputString = string.Empty;
 			FramesCount = 0;
-			CleanInputStringLength = InputString.Length;
 			AlgorithmType = VMAlgorithmType.FIFO;
 		}
 
@@ -36,7 +35,6 @@ namespace OSAlgorithmsSimulator
 		{
 			InputString = inputString;
 			FramesCount = framesCount;
-			CleanInputStringLength = InputString.Length;
 			AlgorithmType = type;
 		}
 
@@ -51,7 +49,7 @@ namespace OSAlgorithmsSimulator
 
 			var list = new List<OSASVMObject>();
 
-			for(int i = 0; i < CleanInputStringLength; i++)
+			for(int i = 0; i < InputString.Length; i++)
 			{
 				// Get the object
 				object obj = InputString[i];
@@ -65,7 +63,7 @@ namespace OSAlgorithmsSimulator
 
 				if (i == 0)
 				{
-					vmObj.Frames.Add(obj);
+					vmObj.Frames.Add(new OSASFrameObject(obj));
 					vmObj.Hit = false;
 					Faults++;
 					list.Add(vmObj);
@@ -74,15 +72,17 @@ namespace OSAlgorithmsSimulator
 
 				// Store frames values of the previous object
 				//(useful in the up-coming check of existence in the next loop iteration)
-				vmObj.Frames = new List<object>(list[i - 1].Frames);
+				vmObj.Frames = new List<OSASFrameObject>(list[i - 1].Frames);
 
 				// Check if the object exists in this copied frames
-				var ex = vmObj.Frames.Exists(a => a.Equals(obj));
+				var ex = vmObj.Frames.Contains(obj);
 
 				if (ex)
 				{
 					vmObj.Hit = true;
-					Hits++;				
+					Hits++;
+
+					vmObj.Frames.Find(a => a.Value.Equals(obj)).SecondChance = true;
 				}
 				else
 				{
@@ -90,10 +90,10 @@ namespace OSAlgorithmsSimulator
 					Faults++;
 
 					if (vmObj.Frames.Count < FramesCount)
-						vmObj.Frames.Add(obj);
+						vmObj.Frames.Add(new OSASFrameObject(obj));
 					else
 					{
-						vmObj.Frames[ObjectToRemoveIndex(list, vmObj, i, InputString, AlgorithmType)] = obj;
+						vmObj.Frames[ObjectToRemoveIndex(list, vmObj, i, InputString, AlgorithmType)] = new OSASFrameObject(obj);
 					}
 				}
 				list.Add(vmObj);
@@ -108,7 +108,7 @@ namespace OSAlgorithmsSimulator
 
 		private int ObjectToRemoveIndex(List<OSASVMObject> objects, OSASVMObject vmObj, int current, string input, VMAlgorithmType type)
 		{
-			int ObjToRemoveIndex = 0;
+			int ObjToRemoveIndex = -1;
 
 			if (type == VMAlgorithmType.FIFO)
 			{
@@ -118,7 +118,7 @@ namespace OSAlgorithmsSimulator
 
 				return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(objToRemoveValue));
 			}
-			else if(type == VMAlgorithmType.LRU)
+			else if (type == VMAlgorithmType.LRU)
 			{
 				var lastFObjects = objects.AsEnumerable().Reverse().Distinct().ToList();
 
@@ -126,7 +126,7 @@ namespace OSAlgorithmsSimulator
 
 				return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(objToRemoveValue));
 			}
-			else if(type == VMAlgorithmType.Optimal)
+			else if (type == VMAlgorithmType.Optimal)
 			{
 				var rightString = input.Substring(current, input.Length - current);
 
@@ -136,8 +136,8 @@ namespace OSAlgorithmsSimulator
 					return ObjToRemoveIndex = 0;
 
 				var grouped = rightUsed.GroupBy(a => a).ToList();
-				
-				if(grouped.Count < vmObj.Frames.Count)
+
+				if (grouped.Count < vmObj.Frames.Count)
 				{
 					var notExists = vmObj.Frames.Where(a => !grouped.Exists(b => b.Key.Equals(a))).ToList();
 
@@ -152,17 +152,74 @@ namespace OSAlgorithmsSimulator
 
 				return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(objToRemoveValuee));
 			}
-			else if(type == VMAlgorithmType.MFU)
+			else if (type == VMAlgorithmType.MFU)
 			{
-				// TODO: Implement MFU Algorithm
-			}
-			else if(type == VMAlgorithmType.SecondChance)
-			{
-				// TODO: Implement Second Chance Algorithm
-			}
+				var groupedObjects = vmObj.Frames.Select(a => new
+				{
+					obj = a,
+					count = input.Substring(0, current).Where(b => b.Equals(a.Value)).Count()
+				});
 
+				var max = groupedObjects.Max(a => a.count);
+
+				// Now get the objects with this max count value
+				var maxCountObjects = groupedObjects.Where(a => a.count == max);
+
+				return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(maxCountObjects.FirstOrDefault().obj.Value));
+			}
+			else if (type == VMAlgorithmType.SecondChance)
+			{
+				//var orderedObjects = objects.SelectMany(a => a.Frames).
+				//	Where(e=>vmObj.Frames.Exists(f=>f.Equals(e))).
+				//	GroupBy(b => b).
+				//	OrderByDescending(c => c.Count());
+
+				var orderedObjects = GetValuesCounts(objects, vmObj).OrderBy(a => a.Value);
+
+			point:
+
+				foreach (var obj in orderedObjects)
+				{
+					var frameObj = vmObj.Frames.Find(a => a.Equals(obj.Key));
+
+					if (frameObj == null)
+						continue;
+
+					if (frameObj.SecondChance)
+					{
+						frameObj.SecondChance = false;
+						continue;
+					}
+					else
+					{
+						return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(obj.Key));
+					}
+				}
+
+				goto point;
+			}
 
 			return ObjToRemoveIndex;
+		}
+
+		private Dictionary<object,int> GetValuesCounts(List<OSASVMObject> objects, OSASVMObject vmObj)
+		{
+			var dic = new Dictionary<object, int>();
+			for (var i = 0; i < vmObj.Frames.Count; i++) 
+			{
+				dic.Add(vmObj.Frames[i].Value, 0);
+
+				foreach (var obj in objects.AsEnumerable().Reverse())
+				{
+					if (obj.Frames.Count > i)
+
+						if (obj.Frames[i].Value == vmObj.Frames[i].Value)
+							dic[vmObj.Frames[i].Value]++;
+						else
+							break;
+				}
+			}
+			return dic;
 		}
 
 		#endregion
