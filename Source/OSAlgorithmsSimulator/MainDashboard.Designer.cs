@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainDashboard));
 			this.tabControlAdv1 = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
 			this.TabCPU = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
@@ -47,6 +48,7 @@
 			this.BtnVMLRU = new System.Windows.Forms.Button();
 			this.BtnVMOptimal = new System.Windows.Forms.Button();
 			this.BtnVMFIFO = new System.Windows.Forms.Button();
+			this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
 			this.tabControlAdv1.SuspendLayout();
 			this.TabCPU.SuspendLayout();
@@ -358,6 +360,11 @@
 			this.BtnVMFIFO.UseVisualStyleBackColor = false;
 			this.BtnVMFIFO.Click += new System.EventHandler(this.BtnVMFIFO_Click);
 			// 
+			// sfToolTip1
+			// 
+			this.sfToolTip1.AutoPopDelay = 60000;
+			this.sfToolTip1.InitialDelay = 700;
+			// 
 			// MainDashboard
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,6 +406,7 @@
 		private System.Windows.Forms.Button BtnVMFIFO;
 		private System.Windows.Forms.Button BtnVMSecondChance;
 		private System.Windows.Forms.Panel pnlVMUcs;
+		private Syncfusion.Windows.Forms.SfToolTip sfToolTip1;
 	}
 }
 

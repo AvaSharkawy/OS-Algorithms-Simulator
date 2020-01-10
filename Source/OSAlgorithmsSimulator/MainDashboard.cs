@@ -1,6 +1,9 @@
 ﻿using OSAlgorithmsSimulator.User_Controls.CPU;
 using OSAlgorithmsSimulator.User_Controls.Virtual_Memory;
+using Syncfusion.WinForms.Controls;
+using Syncfusion.WinForms.Controls.Enums;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -42,6 +45,20 @@ namespace OSAlgorithmsSimulator
 		public MainDashboard()
 		{
 			InitializeComponent();
+			InitializeToolTips();
+		}
+
+		void InitializeToolTips()
+		{
+			SetToolTip(BtnCPUFCFS, Properties.Resources.CPU_FCFS);			
+			SetToolTip(BtnCPUSJF, Properties.Resources.CPU_SJF);			
+			SetToolTip(BtnCPUPriority, Properties.Resources.CPU_Priority);
+			SetToolTip(BtnCPURR, Properties.Resources.CPU_RoundRobin);
+			SetToolTip(BtnVMFIFO, Properties.Resources.VM_FIFO);
+			SetToolTip(BtnVMLRU, Properties.Resources.VM_LRU);
+			SetToolTip(BtnVMOptimal, Properties.Resources.VM_Optimal);
+			SetToolTip(BtnVMMFU, Properties.Resources.VM_MFU);
+			SetToolTip(BtnVMSecondChance, Properties.Resources.VM_SecondChance);
 		}
 
 		#endregion
@@ -142,6 +159,43 @@ namespace OSAlgorithmsSimulator
 		{
 			NavigateTo(userControl, (senderButton as Button), pnlVMUcs, PnlVMButtonHead, VMSidePanel);
 		}
+
+		private void SetToolTip(Control control, string content)
+		{
+			ToolTipInfo toolTipInfo1 = new ToolTipInfo();
+			toolTipInfo1.MaxWidth = 1000;
+			toolTipInfo1.ToolTipStyle = ToolTipStyle.Balloon;
+			toolTipInfo1.ToolTipLocation = ToolTipLocation.BottomRight;
+			toolTipInfo1.BeakBackColor = ColorTranslator.FromHtml("#3D3D3D");
+			toolTipInfo1.BorderColor = ColorTranslator.FromHtml("#1E1E1E");
+			ToolTipItem toolTipItem1 = new ToolTipItem();
+			toolTipItem1.Padding = new Padding(10);
+			toolTipItem1.Style.BackColor = ColorTranslator.FromHtml("#3D3D3D");
+
+			RichTextBox richTextBox1 = new RichTextBox();
+			richTextBox1.Margin = new Padding(0);
+			richTextBox1.Location = new Point(0, 0);
+			richTextBox1.WordWrap = true;
+			richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
+			richTextBox1.Width = 500;
+			richTextBox1.BackColor = ColorTranslator.FromHtml("#3D3D3D");
+			richTextBox1.ContentsResized += (ss, ee) =>
+			{
+				var send = ss as RichTextBox;
+
+				send.Height = ee.NewRectangle.Height;
+			};
+
+			richTextBox1.Rtf = content;
+			richTextBox1.BorderStyle = BorderStyle.None;
+
+			toolTipItem1.Control = richTextBox1;
+
+			toolTipInfo1.Items.Add(toolTipItem1);
+
+			this.sfToolTip1.SetToolTipInfo(control, toolTipInfo1);
+		}
+
 
 		#endregion
 

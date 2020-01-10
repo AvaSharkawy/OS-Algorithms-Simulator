@@ -216,11 +216,29 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\VM_FIFO.rtf" />
+    <None Include="Resources\VM_LRU.rtf" />
+    <None Include="Resources\VM_MFU.rtf" />
+    <None Include="Resources\VM_Optimal.rtf" />
+    <None Include="Resources\VM_SecondChance.rtf" />
+    <None Include="ToolTips\CPU_FCFS.rtf" />
+    <None Include="ToolTips\CPU_Priority.rtf" />
+    <None Include="ToolTips\CPU_RoundRobin.rtf" />
+    <None Include="ToolTips\CPU_SJF.rtf" />
+    <None Include="ToolTips\VM_FIFO.rtf" />
+    <None Include="ToolTips\VM_LRU.rtf" />
+    <None Include="ToolTips\VM_MFU.rtf" />
+    <None Include="ToolTips\VM_Optimal.rtf" />
+    <None Include="ToolTips\VM_SecondChance.rtf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\CPU_FCFS.rtf" />
+    <None Include="Resources\CPU_Priority.rtf" />
+    <None Include="Resources\CPU_RoundRobin.rtf" />
+    <None Include="Resources\CPU_SJF.rtf" />
     <None Include="Resources\Menu.png" />
   </ItemGroup>
   <ItemGroup>
