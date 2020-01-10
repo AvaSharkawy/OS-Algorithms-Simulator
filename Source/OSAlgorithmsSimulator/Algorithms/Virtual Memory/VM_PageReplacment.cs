@@ -72,7 +72,7 @@ namespace OSAlgorithmsSimulator
 
 				// Store frames values of the previous object
 				//(useful in the up-coming check of existence in the next loop iteration)
-				vmObj.Frames = new List<OSASFrameObject>(list[i - 1].Frames);
+				vmObj.Frames = new List<OSASFrameObject>(list[i - i].Frames);
 
 				// Check if the object exists in this copied frames
 				var ex = vmObj.Frames.Contains(obj);
@@ -178,7 +178,7 @@ namespace OSAlgorithmsSimulator
 
 			point:
 
-				foreach (var obj in orderedObjects)
+				foreach (var obj in orderedObjects.Reverse())
 				{
 					var frameObj = vmObj.Frames.Find(a => a.Equals(obj.Key));
 
