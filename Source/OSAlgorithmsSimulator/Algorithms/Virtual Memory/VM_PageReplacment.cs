@@ -72,7 +72,7 @@ namespace OSAlgorithmsSimulator
 
 				// Store frames values of the previous object
 				//(useful in the up-coming check of existence in the next loop iteration)
-				vmObj.Frames = new List<OSASFrameObject>(list[i - i].Frames);
+				vmObj.Frames = new List<OSASFrameObject>(list[i - 1].Frames);
 
 				// Check if the object exists in this copied frames
 				var ex = vmObj.Frames.Contains(obj);
@@ -92,9 +92,7 @@ namespace OSAlgorithmsSimulator
 					if (vmObj.Frames.Count < FramesCount)
 						vmObj.Frames.Add(new OSASFrameObject(obj));
 					else
-					{
 						vmObj.Frames[ObjectToRemoveIndex(list, vmObj, i, InputString, AlgorithmType)] = new OSASFrameObject(obj);
-					}
 				}
 				list.Add(vmObj);
 			}
