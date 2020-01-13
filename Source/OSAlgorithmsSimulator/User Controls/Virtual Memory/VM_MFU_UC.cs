@@ -18,22 +18,26 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 				return;
 			}
 
-			var fifo = new VM_PageReplacment(
+			var mfu = new VM_PageReplacment(
 				txtInputString.Text,
 				Convert.ToInt32(NumFramesCount.Value), VMAlgorithmType.MFU);
 
 			var watch = Stopwatch.StartNew();
 
-			fifo.Calculate();
+			if (!mfu.Calculate())
+			{
+				ACMessageBox.ShowFailedMessage("Failed to start, please check your input");
+				return;
+			}
 
 			watch.Stop();
 
 			lblTime.Text = $"Estimated Time= {watch.ElapsedMilliseconds}ms";
 
-			fifo.FillDGV(DGV);
+			mfu.FillDGV(DGV);
 
-			var hits = $"{fifo.Hits}/{fifo.InputString.Length}";
-			var faults = $"{fifo.Faults}/{fifo.InputString.Length}";
+			var hits = $"{mfu.Hits}/{mfu.InputString.Length}";
+			var faults = $"{mfu.Faults}/{mfu.InputString.Length}";
 
 			lblHits.Text = $"Page Hits = {hits}";
 			lblFaults.Text = $"Page Faults = {faults}";

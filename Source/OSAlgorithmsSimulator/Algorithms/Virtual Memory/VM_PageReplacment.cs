@@ -42,10 +42,10 @@ namespace OSAlgorithmsSimulator
 
 		#region Algorithm Calculation Methods
 
-		public void Calculate()
+		public bool Calculate()
 		{
 			if (string.IsNullOrEmpty(InputString) || FramesCount <= 0)
-				return;
+				return false;
 
 			var list = new List<OSASVMObject>();
 
@@ -98,6 +98,7 @@ namespace OSAlgorithmsSimulator
 			}
 
 			OutputList = list;
+			return true;
 		}
 
 		#endregion

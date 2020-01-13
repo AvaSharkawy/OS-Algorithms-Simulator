@@ -23,7 +23,11 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 			
 			var watch = Stopwatch.StartNew();
 
-			optimal.Calculate();
+			if (!optimal.Calculate())
+			{
+				ACMessageBox.ShowFailedMessage("Failed to start, please check your input");
+				return;
+			}
 
 			watch.Stop();
 

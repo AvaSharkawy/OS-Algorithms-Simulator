@@ -25,7 +25,11 @@ namespace OSAlgorithmsSimulator.User_Controls.Virtual_Memory
 
 			var watch = Stopwatch.StartNew();
 
-			fifo.Calculate();
+			if (!fifo.Calculate())
+			{
+				ACMessageBox.ShowFailedMessage("Failed to start, please check your input");
+				return;
+			}
 
 			watch.Stop();
 
