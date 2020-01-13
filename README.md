@@ -1,9 +1,9 @@
-OS Algorithms Simulator
+## OS Algorithms Simulator
 
-Operating Systems project, Computer science Level 3 students at Thebes Academy(Maa'adi).
-Doctor: Haitham Farouk
+## Operating Systems project, Computer science Level 3 students at Thebes Academy(Maa'adi).
+## Doctor: Haitham Farouk
 
-Special Thanks to Collaborators:
+## Special Thanks to Collaborators:
 -Ahmed Khaled
 -Sherif Atef
 -Muhammad Youssef
