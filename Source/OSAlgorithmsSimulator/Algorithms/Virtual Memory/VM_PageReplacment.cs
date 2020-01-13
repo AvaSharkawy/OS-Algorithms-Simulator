@@ -137,7 +137,7 @@ namespace OSAlgorithmsSimulator
 
 				if (grouped.Count < vmObj.Frames.Count)
 				{
-					var notExists = vmObj.Frames.Where(a => !grouped.Exists(b => b.Key.Equals(a))).ToList();
+					var notExists = vmObj.Frames.Where(a => !grouped.Exists(b => a.Equals(b.Key))).ToList();
 
 					var objToRemoveValue = notExists.FirstOrDefault();
 
