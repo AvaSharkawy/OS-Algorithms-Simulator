@@ -221,7 +221,7 @@ namespace OSAlgorithmsSimulator.User_Controls.CPU
 
 			pnlGanttContainer.Controls.Add(new ChartExt(TerminatedProcess));
 
-			var count = TerminatedProcess.GroupBy(a => a.Id).Select(a => a.FirstOrDefault()).ToList().Count;
+			var count = TerminatedProcess.Where(b=> b.Id != -1).GroupBy(a => a.Id).Select(a => a.FirstOrDefault()).ToList().Count;
 
 			lblAVGWait.Text = $"Wait Time AVG = {(TerminatedProcess.Sum(a => a.WaitTime) / (float)count).ToString("0.00")}";
 			lblAVGTA.Text = $"Turn-around Time AVG = {(TerminatedProcess.Sum(a => a.TurnAroundTime) / (float)count).ToString("0.00")}";
