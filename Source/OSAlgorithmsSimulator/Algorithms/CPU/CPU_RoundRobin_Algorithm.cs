@@ -64,28 +64,30 @@ namespace OSAlgorithmsSimulator
 
 			var currentTime = 0;
 
-			while(Processes.Count > 0)
+			point:
+
+			var PQueue = Processes.Where(a => a.ArrivalTime <= currentTime).OrderBy(a=>a.ArrivalTime).ToList();
+
+			if (PQueue.Count == 0)
 			{
-				var ArrivedProcesses = Processes.Where(a => a.ArrivalTime <= currentTime).ToList();
+				var process = new OSASProcess();
+				process.Id = -1;
+				process.StartTime = currentTime;
+				process.BurstTime += (Processes.OrderBy(a=>a.ArrivalTime).FirstOrDefault().ArrivalTime - currentTime);
+				process.FinishTime = process.StartTime + process.BurstTime;
+				process.RemainingTime = 0;
+				currentTime = process.FinishTime;
+				TerminatedProcesses.Add(process);
+				goto point;
+			}
 
-				if (ArrivedProcesses.Count == 0)
-				{
-					var process = new OSASProcess();
-					process.Id = -1;
-					process.StartTime = currentTime;
-					process.BurstTime += (Processes.FirstOrDefault().ArrivalTime - currentTime);
-					process.FinishTime = process.StartTime + process.BurstTime;
-					process.RemainingTime = 0;
-					currentTime = process.FinishTime;
-					TerminatedProcesses.Add(process);
-					continue;
-				}
-
-				var p = ArrivedProcesses.FirstOrDefault();
+			while (PQueue.Count > 0)
+			{
+				var p = PQueue.FirstOrDefault();
 
 				if (p.RemainingTime > TimeUnit)
 				{
-					Processes.Remove(p);
+					PQueue.Remove(p);
 
 					p.StartTime = currentTime;
 
@@ -100,11 +102,17 @@ namespace OSAlgorithmsSimulator
 					};
 
 					TerminatedProcesses.Add(pro);
-					Processes.Add(p);
+					Processes.Remove(p);
+
+					PQueue.AddRange(Processes.Where(a => a.ArrivalTime <= currentTime &&
+													!PQueue.Exists(b => b.Id.Equals(a.Id)) &&
+													a.Id != p.Id).OrderBy(a => a.ArrivalTime));
+					
+					PQueue.Add(p);
 				}
 				else
 				{
-					Processes.Remove(p);
+					PQueue.Remove(p);
 
 					p.StartTime = currentTime;
 
@@ -119,8 +127,27 @@ namespace OSAlgorithmsSimulator
 					p.TurnAroundTime = p.FinishTime - p.ArrivalTime;
 
 					TerminatedProcesses.Add(p);
+					Processes.Remove(p);
+
+					PQueue.AddRange(Processes.Where(a => a.ArrivalTime <= currentTime &&
+													!PQueue.Exists(b => b.Id.Equals(a.Id)))
+												.OrderBy(a => a.ArrivalTime));
 				}
 
+				if(PQueue.Count == 0 && Processes.Count > 0)
+				{
+					var process = new OSASProcess();
+					process.Id = -1;
+					process.StartTime = currentTime;
+					process.BurstTime += (Processes.OrderBy(a => a.ArrivalTime).FirstOrDefault().ArrivalTime - currentTime);
+					process.FinishTime = process.StartTime + process.BurstTime;
+					process.RemainingTime = 0;
+					currentTime = process.FinishTime;
+					TerminatedProcesses.Add(process);
+					PQueue.AddRange(Processes.Where(a => a.ArrivalTime <= currentTime &&
+													!PQueue.Exists(b => b.Id.Equals(a.Id)))
+												.OrderBy(a => a.ArrivalTime));
+				}
 			}
 
 			Processes.Clear();
