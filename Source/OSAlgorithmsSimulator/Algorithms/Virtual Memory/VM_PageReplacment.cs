@@ -197,6 +197,22 @@ namespace OSAlgorithmsSimulator
 
 				goto point;
 			}
+			else if(type == VMAlgorithmType.LFU)
+            {
+				var groupedObjects = vmObj.Frames.Select(a => new
+				{
+					obj = a,
+					count = input.Substring(0, current).Where(b => b.Equals(a.Value)).Count(),
+					stringIndex = input.Substring(0,current).IndexOf((char)a.Value),
+				});
+
+				var min = groupedObjects.Min(a => a.count);
+
+				// Now get the objects with this min count value ordered by input string index
+				var minCountObjects = groupedObjects.Where(a => a.count == min).OrderBy(a => a.stringIndex);
+
+				return ObjToRemoveIndex = vmObj.Frames.FindIndex(a => a.Equals(minCountObjects.FirstOrDefault().obj.Value));
+			}
 
 			return ObjToRemoveIndex;
 		}

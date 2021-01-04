@@ -8,26 +8,31 @@
 		/// <summary>
 		/// First In First Out Algorithm
 		/// </summary>
-		FIFO = 1,
+		FIFO = 0,
 
 		/// <summary>
 		/// Least Recently Used
 		/// </summary>
-		LRU = 2,
+		LRU = 1,
 
 		/// <summary>
 		/// Optimal page replacement
 		/// </summary>
-		Optimal = 3,
+		Optimal = 2,
 
 		/// <summary>
 		/// Most Frequently Used
 		/// </summary>
-		MFU = 4,
+		MFU = 3,
 
 		/// <summary>
 		/// Second chance page replacement algorithm
 		/// </summary>
-		SecondChance = 5,
+		SecondChance = 4,
+
+		/// <summary>
+		/// Least Frequently Used
+		/// </summary>
+		LFU = 5,
 	}
 }

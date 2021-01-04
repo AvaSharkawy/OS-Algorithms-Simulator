@@ -33,6 +33,8 @@ namespace OSAlgorithmsSimulator
 
 		VM_MFU_UC VM_MFU_Page { get; set; } = new VM_MFU_UC();
 
+		VM_LFU_UC VM_LFU_Page { get; set; } = new VM_LFU_UC();
+
 		VM_SecondChance_UC VM_SecondChance_Page { get; set; } = new VM_SecondChance_UC();
 
 		#endregion
@@ -58,7 +60,7 @@ namespace OSAlgorithmsSimulator
 			SetToolTip(BtnVMLRU, Properties.Resources.VM_LRU);
 			SetToolTip(BtnVMOptimal, Properties.Resources.VM_Optimal);
 			SetToolTip(BtnVMMFU, Properties.Resources.VM_MFU);
-			SetToolTip(BtnVMSecondChance, Properties.Resources.VM_SecondChance);
+			SetToolTip(BtnVMLFU, Properties.Resources.VM_SecondChance);
 		}
 
 		#endregion
@@ -245,11 +247,17 @@ namespace OSAlgorithmsSimulator
 			VMNavigateTo(sender, VM_MFU_Page);
 		}
 
+		private void BtnVMLFU_Click(object sender, System.EventArgs e)
+		{
+			VMNavigateTo(sender, VM_LFU_Page);
+		}
+
 		private void BtnVMSecondChance_Click(object sender, System.EventArgs e)
 		{
 			VMNavigateTo(sender, VM_SecondChance_Page);
 		}
 
-		#endregion
-	}
+        #endregion
+
+    }
 }

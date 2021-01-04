@@ -142,6 +142,12 @@
     <Compile Include="User Controls\Virtual Memory\VM_FIFO_UC.Designer.cs">
       <DependentUpon>VM_FIFO_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_LFU_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Virtual Memory\VM_LFU_UC.Designer.cs">
+      <DependentUpon>VM_LFU_UC.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\Virtual Memory\VM_LRU_UC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Virtual Memory\VM_FIFO_UC.resx">
       <DependentUpon>VM_FIFO_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Virtual Memory\VM_LFU_UC.resx">
+      <DependentUpon>VM_LFU_UC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Virtual Memory\VM_LRU_UC.resx">
       <DependentUpon>VM_LRU_UC.cs</DependentUpon>
